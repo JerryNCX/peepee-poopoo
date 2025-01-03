@@ -27,30 +27,30 @@ function Title() {
         </Flex>
 
         <Flex justifyContent="center">
-          <VStack gap="10">
-            <InputGroup>
+          <VStack gap="5">
+            <Field label="Name" required>
               <Input placeholder="Name" />
-            </InputGroup>
+            </Field>
 
-            <InputGroup>
+            <Field label="Contact" required>
               <Input placeholder="Contact" />
-            </InputGroup>
+            </Field>
 
-            <InputGroup>
+            <Field label="Email" required>
               <Input placeholder="Email" />
-            </InputGroup>
+            </Field>
 
-            <InputGroup>
+            <Field label="Nationality" required>
               <NativeSelectRoot size="sm" width="180px">
                 <NativeSelectField placeholder="Nationality">
                   <Nationality />
                 </NativeSelectField>
               </NativeSelectRoot>
-            </InputGroup>
+            </Field>
 
-            <InputGroup>
+            <Field label="IC / Passport Number" required>
               <Input placeholder="IC / Passport Number" />
-            </InputGroup>
+            </Field>
             <Button background="pink">Submit</Button>
           </VStack>
         </Flex>
