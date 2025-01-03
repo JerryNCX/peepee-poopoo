@@ -48,7 +48,12 @@ function Title() {
               </NativeSelectRoot>
             </Field>
 
-            <Field label="IC / Passport Number" invalid errorText="Only numbers allowed" required >
+            <Field
+              label="IC / Passport Number"
+              invalid
+              errorText="Only numbers allowed"
+              required
+            >
               <Input placeholder="IC / Passport Number" />
             </Field>
             <Button background="pink">Submit</Button>
