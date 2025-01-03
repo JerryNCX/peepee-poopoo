@@ -40,7 +40,14 @@ function Title() {
             </InputGroup>
 
             <InputGroup>
-              <Input placeholder="Nationality" />
+              <NativeSelectRoot size="sm" width="240px">
+                <NativeSelectField placeholder="Nationality">
+                  <option value="react">React</option>
+                  <option value="vue">Vue</option>
+                  <option value="angular">Angular</option>
+                  <option value="svelte">Svelte</option>
+                </NativeSelectField>
+              </NativeSelectRoot>
             </InputGroup>
 
             <InputGroup>
