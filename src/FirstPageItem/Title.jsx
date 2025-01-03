@@ -13,6 +13,7 @@ import {
 import truck from "../MyImage/tow-truck-svgrepo-com.svg";
 import { InputGroup } from "../components/ui/input-group";
 import { Field } from "../components/ui/field";
+import Nationality from "./Nationality";
 
 function Title() {
   return (
@@ -40,12 +41,9 @@ function Title() {
             </InputGroup>
 
             <InputGroup>
-              <NativeSelectRoot size="sm" width="240px">
+              <NativeSelectRoot size="sm" width="180px">
                 <NativeSelectField placeholder="Nationality">
-                  <option value="react">React</option>
-                  <option value="vue">Vue</option>
-                  <option value="angular">Angular</option>
-                  <option value="svelte">Svelte</option>
+                  <Nationality />
                 </NativeSelectField>
               </NativeSelectRoot>
             </InputGroup>
