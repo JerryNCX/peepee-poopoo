@@ -56,7 +56,7 @@ function Title() {
             >
               <Input placeholder="IC / Passport Number" />
             </Field>
-            <Button background="pink">Submit</Button>
+            <Button background="cyan">Submit</Button>
           </VStack>
         </Flex>
       </Box>
