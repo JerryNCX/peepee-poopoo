@@ -29,19 +29,19 @@ function Title() {
         <Flex justifyContent="center">
           <VStack gap="5">
             <Field label="Name" required>
-              <Input placeholder="Name" />
+              <Input placeholder="Name" background="black" />
             </Field>
 
             <Field label="Contact" required>
-              <Input placeholder="Contact" />
+              <Input placeholder="Contact" background="black" />
             </Field>
 
             <Field label="Email" required>
-              <Input placeholder="Email" />
+              <Input placeholder="Email" background="black" />
             </Field>
 
             <Field label="Nationality" required>
-              <NativeSelectRoot size="sm" width="180px">
+              <NativeSelectRoot size="sm" width="180px" variant={"subtle"}>
                 <NativeSelectField placeholder="Nationality">
                   <Nationality />
                 </NativeSelectField>
@@ -54,7 +54,7 @@ function Title() {
               errorText="Only numbers allowed"
               required
             >
-              <Input placeholder="IC / Passport Number" />
+              <Input placeholder="IC / Passport Number" background="black" />
             </Field>
             <Button background="cyan">Submit</Button>
           </VStack>
