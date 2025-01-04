@@ -10,10 +10,8 @@ function Nationality() {
     <option value="Indonesia">Indonesia</option>
     <option value="China">China</option>
     <option value="Pakisthan">Pakisthan</option>
-    <option valur="Other">Other</option>
-    if (Other) {
-      <Input _placeholder="List" variant="flushed"></Input>
-    }
+    <option value="Other">Other</option>
+      <Input placeholder="List" variant="flushed"></Input>
     </>
   );
 }
