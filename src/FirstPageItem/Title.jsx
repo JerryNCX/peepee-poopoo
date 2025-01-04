@@ -41,7 +41,7 @@ function Title() {
             </Field>
 
             <Field label="Nationality" required>
-              <NativeSelectRoot size="sm" width="180px" variant={"subtle"}>
+              <NativeSelectRoot size="sm" width="-moz-max-content" variant={"subtle"}>
                 <NativeSelectField placeholder="Nationality">
                   <Nationality />
                 </NativeSelectField>
