@@ -1,5 +1,5 @@
 import React from "react";
-import { NativeSelectRoot, NativeSelectField, Field } from "@chakra-ui/react";
+import { NativeSelectRoot, NativeSelectField, Field, Input } from "@chakra-ui/react";
 
 function Nationality() {
   return (
@@ -10,6 +10,10 @@ function Nationality() {
     <option value="Indonesia">Indonesia</option>
     <option value="China">China</option>
     <option value="Pakisthan">Pakisthan</option>
+    <option valur="Other">Other</option>
+    if (Other) {
+      <Input _placeholder="List" variant="flushed"></Input>
+    }
     </>
   );
 }
