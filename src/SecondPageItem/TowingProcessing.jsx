@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { ProgressBar, ProgressRoot } from "@/components/ui/progress";
 
-const TowingProcessing = () => {
+function TowingProcessing() {
   return (
-    <div>TowingProcessing</div>
-  )
+    <ProgressRoot maxW="240px" value={null}>
+      <ProgressBar />
+    </ProgressRoot>
+  );
 }
 
-export default TowingProcessing
+export default TowingProcessing;
