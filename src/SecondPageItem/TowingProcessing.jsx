@@ -1,11 +1,19 @@
 import React from "react";
-import { ProgressBar, ProgressRoot } from "@/components/ui/progress";
+import { ProgressBar, ProgressRoot } from "../components/Progress";
 
-function TowingProcessing() {
+const Demo = () => {
   return (
     <ProgressRoot maxW="240px" value={null}>
       <ProgressBar />
     </ProgressRoot>
+  );
+};
+
+function TowingProcessing() {
+  return (
+    <>
+      <Demo />
+    </>
   );
 }
 

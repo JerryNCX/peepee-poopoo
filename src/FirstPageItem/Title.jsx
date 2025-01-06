@@ -9,11 +9,13 @@ import {
   VStack,
   NativeSelectRoot,
   NativeSelectField,
+  ProgressRoot,
 } from "@chakra-ui/react";
 import truck from "../MyImage/tow-truck-svgrepo-com.svg";
 import { InputGroup } from "../components/ui/input-group";
 import { Field } from "../components/ui/field";
 import Nationality from "./Nationality";
+// import { ProgressBar, ProgressRoot } from "../components/ui/progress";
 
 function Title() {
   return (
@@ -60,8 +62,13 @@ function Title() {
             >
               <Input placeholder="IC / Passport Number" background="black" />
             </Field>
-            <Button background="cyan">
-              <a href="../SecondPageItem/TowingProcessing.jsx">Submit</a>
+            <Button colorPalette="peal">
+              <a href="/src/SecondPageItem/TowingProcessing.jsx">
+                Submit
+                {/* <ProgressRoot>
+                <ProgressBar />
+                </ProgressRoot> */}
+              </a>
             </Button>
           </VStack>
         </Flex>
