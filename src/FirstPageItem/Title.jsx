@@ -22,7 +22,7 @@ function Title() {
     <>
       <Box minW="100vw" minH="100vh" background="#123456">
         <Flex justifyContent="space-evenly">
-          <Text fontSize="100px" fontWeight="bolder">
+          <Text className="title">
             Spot N Tow
           </Text>
           <Image src={truck} w="180px" h="180px" />
@@ -70,6 +70,7 @@ function Title() {
                 </ProgressRoot> */}
               </a>
             </Button>
+            <Text color="red.400">* Required</Text>
           </VStack>
         </Flex>
       </Box>
