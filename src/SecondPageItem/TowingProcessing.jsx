@@ -1,18 +1,32 @@
 import React from "react";
-import { ProgressBar, ProgressRoot } from "../components/Progress";
-
-const Demo = () => {
-  return (
-    <ProgressRoot maxW="240px" value={null}>
-      <ProgressBar />
-    </ProgressRoot>
-  );
-};
+import {
+  AbsoluteCenter,
+  Box,
+  Center,
+  Flex,
+  HStack,
+  Progress,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import {
+  ProgressCircleRoot,
+  ProgressCircleRing,
+} from "../components/ui/progress-circle";
 
 function TowingProcessing() {
   return (
     <>
-      <Demo />
+      <Box>
+        <AbsoluteCenter>
+          <VStack>
+            <Text>Processing Your Submission</Text>
+            <ProgressCircleRoot value={null}>
+              <ProgressCircleRing />
+            </ProgressCircleRoot>
+          </VStack>
+        </AbsoluteCenter>
+      </Box>
     </>
   );
 }

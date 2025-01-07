@@ -15,6 +15,7 @@ import truck from "../MyImage/tow-truck-svgrepo-com.svg";
 import { InputGroup } from "../components/ui/input-group";
 import { Field } from "../components/ui/field";
 import Nationality from "./Nationality";
+import TowingProcessing from "../SecondPageItem/TowingProcessing";
 // import { ProgressBar, ProgressRoot } from "../components/ui/progress";
 
 function Title() {
@@ -23,7 +24,7 @@ function Title() {
       <Box minW="100vw" minH="100vh" background="#123456">
         <Flex justifyContent="space-evenly">
           <div className="title">
-            <HStack  margin="3">
+            <HStack margin="3">
               <Text margin="0px 100px 0px 0px">Spot N Tow</Text>
               <Image src={truck} w="160px" h="160px" />
             </HStack>
@@ -65,12 +66,7 @@ function Title() {
               <Input placeholder="IC / Passport Number" background="black" />
             </Field>
             <Button colorPalette="peal">
-              <a href="/src/SecondPageItem/TowingProcessing.jsx">
-                Submit
-                {/* <ProgressRoot>
-                <ProgressBar />
-                </ProgressRoot> */}
-              </a>
+              <a href={TowingProcessing}>Submit</a>
             </Button>
             <Text color="red.400">* Required</Text>
           </VStack>

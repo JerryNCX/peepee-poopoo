@@ -1,8 +1,11 @@
 import Title from "./FirstPageItem/Title";
+import TowingProcessing from "./SecondPageItem/TowingProcessing";
 
 function App() {
   return (
-    <Title />
+    <>
+    <TowingProcessing />
+    </>
   );
 }
 export default App;
