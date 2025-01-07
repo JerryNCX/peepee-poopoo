@@ -22,10 +22,12 @@ function Title() {
     <>
       <Box minW="100vw" minH="100vh" background="#123456">
         <Flex justifyContent="space-evenly">
-          <Text className="title">
-            Spot N Tow
-          </Text>
-          <Image src={truck} w="180px" h="180px" />
+          <div className="title">
+            <HStack  margin="3">
+              <Text margin="0px 100px 0px 0px">Spot N Tow</Text>
+              <Image src={truck} w="160px" h="160px" />
+            </HStack>
+          </div>
         </Flex>
 
         <Flex justifyContent="center">
