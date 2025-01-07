@@ -20,8 +20,8 @@ function TowingProcessing() {
       <Box>
         <AbsoluteCenter>
           <VStack>
-            <Text>Processing Your Submission</Text>
-            <ProgressCircleRoot value={null}>
+            <Text textStyle="5xl" paddingBottom="30px">Processing Your Submission</Text>
+            <ProgressCircleRoot value={null} size="xl">
               <ProgressCircleRing />
             </ProgressCircleRoot>
           </VStack>
