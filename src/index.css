@@ -6,3 +6,8 @@
   margin-bottom: 20px;
   display: flex;
 }
+
+.HomePage{
+  min-width: 100vmax;
+  min-height: 100vmax;
+}

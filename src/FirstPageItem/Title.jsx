@@ -10,18 +10,18 @@ import {
   NativeSelectRoot,
   NativeSelectField,
   ProgressRoot,
+  Link,
 } from "@chakra-ui/react";
 import truck from "../MyImage/tow-truck-svgrepo-com.svg";
 import { InputGroup } from "../components/ui/input-group";
 import { Field } from "../components/ui/field";
 import Nationality from "./Nationality";
-import TowingProcessing from "../SecondPageItem/TowingProcessing";
-// import { ProgressBar, ProgressRoot } from "../components/ui/progress";
+import TowingProcessing from "../SecondPageItem/TowingProcessing.jsx";
 
 function Title() {
   return (
     <>
-      <Box minW="100vw" minH="100vh" background="#123456">
+      <Box className="HomePage" background="#123456">
         <Flex justifyContent="space-evenly">
           <div className="title">
             <HStack margin="3">
@@ -66,7 +66,7 @@ function Title() {
               <Input placeholder="IC / Passport Number" background="black" />
             </Field>
             <Button colorPalette="peal">
-              <a href={TowingProcessing}>Submit</a>
+              <a href="/src/SecondPageItem/TowingProcessing">Submit</a>
             </Button>
             <Text color="red.400">* Required</Text>
           </VStack>

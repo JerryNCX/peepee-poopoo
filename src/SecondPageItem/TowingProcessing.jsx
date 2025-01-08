@@ -14,7 +14,7 @@ import {
   ProgressCircleRing,
 } from "../components/ui/progress-circle";
 
-function TowingProcessing() {
+function TowingProcessing () {
   return (
     <>
       <Box>
