@@ -13,14 +13,17 @@ import {
   ProgressCircleRoot,
   ProgressCircleRing,
 } from "../components/ui/progress-circle";
+import { ProgressBar, ProgressRoot } from "../components/ui/progress.jsx";
 
-function TowingProcessing () {
+function TowingProcessing() {
   return (
     <>
       <Box>
         <AbsoluteCenter>
           <VStack>
-            <Text textStyle="5xl" paddingBottom="30px">Processing Your Submission</Text>
+            <Text textStyle="5xl" paddingBottom="30px">
+              Processing Your Submission
+            </Text>
             <ProgressCircleRoot value={null} size="xl">
               <ProgressCircleRing />
             </ProgressCircleRoot>

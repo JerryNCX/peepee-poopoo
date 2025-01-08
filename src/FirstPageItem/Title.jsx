@@ -12,7 +12,7 @@ import {
   ProgressRoot,
   Link,
 } from "@chakra-ui/react";
-import truck from "../MyImage/tow-truck-svgrepo-com.svg";
+import truck from "../MyImage/SEF Logo.jpg";
 import { InputGroup } from "../components/ui/input-group";
 import { Field } from "../components/ui/field";
 import Nationality from "./Nationality";
@@ -21,12 +21,12 @@ import TowingProcessing from "../SecondPageItem/TowingProcessing.jsx";
 function Title() {
   return (
     <>
-      <Box className="HomePage" background="#123456">
+      <Box className="HomePage" background="#123456" paddingTop="20px">
         <Flex justifyContent="space-evenly">
           <div className="title">
             <HStack margin="3">
               <Text margin="0px 100px 0px 0px">Spot N Tow</Text>
-              <Image src={truck} w="160px" h="160px" />
+              <Image src={truck} w="160px" h="160px" borderRadius="4xl"/>
             </HStack>
           </div>
         </Flex>
