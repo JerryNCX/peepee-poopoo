@@ -9,5 +9,9 @@
 
 .HomePage{
   min-width: 100vmax;
-  min-height: 100vmax;
+  min-height: 50vmax;
+}
+
+.Input{
+  background: black;
 }

@@ -32,17 +32,17 @@ function Title() {
         </Flex>
 
         <Flex justifyContent="center">
-          <VStack gap="5">
+          <VStack gap="3">
             <Field label="Name" required>
-              <Input placeholder="Name" background="black" />
+              <Input placeholder="Name" className="Input" />
             </Field>
 
             <Field label="Contact" required>
-              <Input placeholder="Contact" background="black" />
+              <Input placeholder="Example 0123456789" className="Input" />
             </Field>
 
             <Field label="Email" required>
-              <Input placeholder="Email" background="black" />
+              <Input placeholder="Email" className="Input" />
             </Field>
 
             <Field label="Nationality" required>
