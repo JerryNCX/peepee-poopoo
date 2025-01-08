@@ -1,11 +1,16 @@
-import { HStack } from "@chakra-ui/react";
 import Title from "./FirstPageItem/Title";
 import TowingProcessing from "./SecondPageItem/TowingProcessing";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Title />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Title />} />
+        <Route path="/ProcessingPage" element={<TowingProcessing />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

@@ -15,7 +15,7 @@ import {
 } from "../components/ui/progress-circle";
 import { ProgressBar, ProgressRoot } from "../components/ui/progress.jsx";
 
-function TowingProcessing() {
+export default function TowingProcessing () {
   return (
     <>
       <Box>
@@ -33,5 +33,3 @@ function TowingProcessing() {
     </>
   );
 }
-
-export default TowingProcessing;
