@@ -12,26 +12,25 @@ import {
   ProgressRoot,
 } from "@chakra-ui/react";
 import truck from "../MyImage/SEF Logo.jpg";
-import { InputGroup } from "../components/ui/input-group";
-import { Field } from "../components/ui/field";
-import Nationality from "./Nationality";
-import { BrowserRouter, Links, Route, Routes, Link, useNavigate } from "react-router-dom";
-import TowingProcessing from "../SecondPageItem/TowingProcessing.jsx";
+import { InputGroup } from "../components/ui/input-group.jsx";
+import { Field } from "../components/ui/field.jsx";
+import Nationality from "./Nationality.jsx";
+import {
+  BrowserRouter,
+  Links,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 
 
-function Title() {
+function FormPage() {
   const navigate = useNavigate();
   return (
     <>
-      <Box className="HomePage" background="#123456" paddingTop="20px">
-        <Flex justifyContent="space-evenly">
-          <div className="title">
-            <HStack margin="3">
-              <Text margin="0px 100px 0px 0px">Spot N Tow</Text>
-              <Image src={truck} w="160px" h="160px" borderRadius="4xl" />
-            </HStack>
-          </div>
-        </Flex>
+      <Box className="Page" background="#123456" paddingTop="20px">
+        
 
         <Flex justifyContent="center">
           <VStack gap="3">
@@ -68,7 +67,10 @@ function Title() {
               <Input placeholder="IC / Passport Number" background="black" />
             </Field>
 
-            <Button colorPalette="peal" onClick={() => navigate("/ProcessingPage")}>
+            <Button
+              colorPalette="peal"
+              onClick={() => navigate("/ProcessingPage")}
+            >
               Submit
             </Button>
 
@@ -80,4 +82,4 @@ function Title() {
   );
 }
 
-export default Title;
+export default FormPage;
