@@ -23,7 +23,7 @@ function StartingPage() {
   return (
     <>
       <Box maxWidth="100%" maxHeight="100vh">
-        <Box background="cyan.700">
+        <Box background="yellow.100">
           <Center>
             <VStack>
               <HStack margin="30px">
@@ -31,6 +31,7 @@ function StartingPage() {
                   margin="0px 150px 0px 0px"
                   fontSize="7xl"
                   fontStyle="bold"
+                  color="black"
                 >
                   Spot & Tow
                 </Text>
