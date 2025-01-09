@@ -12,27 +12,41 @@ import {
   AspectRatio,
 } from "@chakra-ui/react";
 import truck from "../MyImage/SEF Logo.jpg";
+import car from "../assets/Car.jpg";
 import { useNavigate } from "react-router-dom";
 
 function StartingPage() {
   const navigate = useNavigate();
+//   const carImage = {
+//     backgroundImage: `path(${car})`,
+//   }
   return (
     <>
-      <Box background="cyan.700">
-        <AspectRatio maxWidth="100%" ratio={{ base: 1, md: 16 / 9 }}>
-          <VStack>
-            <HStack margin="3">
-              <Text margin="0px 100px 0px 0px" fontSize="7xl">
-                Spot & Tow
-              </Text>
-              <Image src={truck} w="120px" h="120px" borderRadius="4xl" />
-            </HStack>
-
-            <Button onClick={() => navigate("/FormPage")}>
-              Book Towing Service
-            </Button>
-          </VStack>
-        </AspectRatio>
+      <Box maxWidth="100%" maxHeight="100vh">
+        <Box background="cyan.700">
+          <Center>
+            <VStack>
+              <HStack margin="30px">
+                <Text
+                  margin="0px 150px 0px 0px"
+                  fontSize="7xl"
+                  fontStyle="bold"
+                >
+                  Spot & Tow
+                </Text>
+                <Image src={truck} w="120px" h="120px" borderRadius="4xl" />
+              </HStack>
+            </VStack>
+          </Center>
+        </Box>
+        {/* <Box background='url(../assets/Car.jpg)'> */}
+        <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" >
+            <Box padding="20% 0% 7% 10%">
+          <Button onClick={() => navigate("/FormPage")}>
+            Book Towing Service
+          </Button>
+            </Box>
+        </Box>
       </Box>
     </>
   );

@@ -68,7 +68,7 @@ function FormPage() {
 
               <Button
                 colorPalette="peal"
-                onClick={() => navigate("/ProcessingPage")}
+                onClick={() => navigate("/LoadingPage")}
               >
                 Submit
               </Button>

@@ -10,7 +10,8 @@ function App() {
         <Routes>
           <Route path="/" element={<StartingPage />} />
           <Route path="/Formpage" element={<FormPage />} />
-          <Route path="/ProcessingPage" element={<TowingProcessing />} />
+          <Route path="/LoadingPage" element={<TowingProcessing />} />
+          {/* <Route path="/ProcessingPage" element={<ProcessingPage />} /> */}
         </Routes>
       </BrowserRouter>
     </>
