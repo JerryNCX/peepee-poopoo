@@ -67,6 +67,7 @@ function FormPage() {
               </Field>
 
               <Button
+              _hover={{bg: "green"}}
                 colorPalette="peal"
                 onClick={() => navigate("/LoadingPage")}
               >

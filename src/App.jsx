@@ -3,6 +3,7 @@ import TowingProcessing from "./SecondPageItem/TowingProcessing";
 import ProcessingPage from "./SecondPageItem/ProcessingPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartingPage from "./FirstPageItem/StartingPage";
+import LoadingConditional from "./SecondPageItem/LoadingConditional";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       {/* <ProcessingPage /> */}
-
+        {/* <LoadingConditional /> */}
     </>
   );
 }

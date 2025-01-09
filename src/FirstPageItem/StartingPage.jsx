@@ -42,8 +42,8 @@ function StartingPage() {
         </Box>
         {/* <Box background='url(../assets/Car.jpg)'> */}
         <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" >
-            <Box padding="20% 0% 7% 15%">
-          <Button onClick={() => navigate("/FormPage")} size="2xl">
+            <Box padding="20% 0% 7% 15%" >
+          <Button onClick={() => navigate("/FormPage")} size="2xl" _hover={{bg: "green"}}>
             Book Towing Service
           </Button>
             </Box>
