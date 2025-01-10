@@ -41,7 +41,7 @@ function FormPage() {
               </Field>
 
               <Field label="Contact" required>
-                <Input placeholder="Example 0123456789" className="Input" />
+                <Input placeholder="Exapmle +6012-345 6789" className="Input" />
               </Field>
 
               <Field label="Email" required>
