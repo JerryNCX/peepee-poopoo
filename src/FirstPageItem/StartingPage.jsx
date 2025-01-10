@@ -17,9 +17,9 @@ import { useNavigate } from "react-router-dom";
 
 function StartingPage() {
   const navigate = useNavigate();
-//   const carImage = {
-//     backgroundImage: `path(${car})`,
-//   }
+  //   const carImage = {
+  //     backgroundImage: `path(${car})`,
+  //   }
   return (
     <>
       <Box maxWidth="100%" maxHeight="100vh">
@@ -40,13 +40,17 @@ function StartingPage() {
             </VStack>
           </Center>
         </Box>
-        {/* <Box background='url(../assets/Car.jpg)'> */}
-        <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" >
-            <Box padding="20% 0% 7% 15%" >
-          <Button onClick={() => navigate("/FormPage")} size="2xl" _hover={{bg: "green"}}>
-            Book Towing Service
-          </Button>
-            </Box>
+        <Box background="yellow.200">
+          {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
+          <Box padding="20% 0% 7% 15%">
+            <Button
+              onClick={() => navigate("/FormPage")}
+              size="2xl"
+              _hover={{ bg: "green" }}
+            >
+              Book Towing Service
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>

@@ -29,10 +29,13 @@ function FormPage() {
   const navigate = useNavigate();
   return (
     <>
-      <Box className="Page" background="#123456" paddingTop="20px">
+      <Box className="Page" background="#123456">
         <AbsoluteCenter>
           <Flex justifyContent="center">
             <VStack gap="3">
+              <Box fontSize="7xl" paddingBottom="40px">
+                Submit Your Form !
+              </Box>
               <Field label="Name" required>
                 <Input placeholder="Name" className="Input" />
               </Field>
