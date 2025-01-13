@@ -17,6 +17,7 @@ import truck from "../MyImage/SEF Logo.jpg";
 import car from "../assets/Car.jpg";
 import { useNavigate } from "react-router-dom";
 import towTruck from "../MyImage/tow-truck-svgrepo-com.svg";
+import phoneIcon from "../MyImage/phone-call-svgrepo-com.svg";
 import {
   AccordionItem,
   AccordionItemContent,
@@ -56,11 +57,9 @@ function StartingPage() {
               <AccordionRoot collapsible>
                 <HStack gap="20">
                   {items.map((item, index) => (
-                    <AccordionItem key={index} value={item.value} >
+                    <AccordionItem key={index} value={item.value}>
                       <AccordionItemTrigger color="black">
-                        <Box w="fit-content">
-                        {item.title}
-                        </Box>
+                        <Box w="fit-content">{item.title}</Box>
                       </AccordionItemTrigger>
                       <AccordionItemContent>
                         <Button>{item.text}</Button>
@@ -70,7 +69,7 @@ function StartingPage() {
                   <Container>
                     <AccordionRoot collapsible>
                       <AccordionItem w="180px">
-                        <AccordionItemTrigger color="black" >
+                        <AccordionItemTrigger color="black">
                           Login
                         </AccordionItemTrigger>
                         <AccordionItemContent>
@@ -87,32 +86,51 @@ function StartingPage() {
             </Flex>
           </HStack>
         </Box>
-        <Box background="yellow.200" minH="100vh">
+        <Box background="yellow.200" minH="80vh">
           {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
           <HStack justifyContent="space-evenly" paddingTop="100px">
             <VStack>
               <Container paddingBottom="20">
-              <Text fontSize="4xl" fontWeight="extrabold" paddingBottom="30px" color="blackAlpha.700">Find it. Fix it. Tow</Text>
-              <Text fontSize="xl" fontWeight="bold" color="blackAlpha.500">Fast and reliable towing services</Text>
-              <Text fontSize="lg" fontWeight="bold" color="blackAlpha.500"> at your fingertips.</Text>
+                <Text
+                  fontSize="4xl"
+                  fontWeight="extrabold"
+                  paddingBottom="30px"
+                  color="blackAlpha.700"
+                >
+                  Find it. Fix it. Tow
+                </Text>
+                <Text fontSize="xl" fontWeight="bold" color="blackAlpha.500">
+                  Fast and reliable towing services
+                </Text>
+                <Text fontSize="lg" fontWeight="bold" color="blackAlpha.500">
+                  {" "}
+                  at your fingertips.
+                </Text>
               </Container>
-            <Button
-              onClick={() => navigate("/FormPage")}
-              size="2xl"
-              _hover={{ bg: "green" }}
-              
+              <Button
+                onClick={() => navigate("/FormPage")}
+                size="2xl"
+                _hover={{ bg: "green" }}
               >
-              Book Towing Service
-            </Button>
-              </VStack>
+                Book Towing Service
+              </Button>
+            </VStack>
             <Image src={towTruck} aspectRatio={16 / 9} maxW="50%" maxH="45vh" />
           </HStack>
         </Box>
-            <Container maxW="100%" maxH="fit-content" padding="20" bg="yellow.300">
-              <AspectRatio ratio={16 / 9}>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng" />
-              </AspectRatio>
-            </Container>
+        <Center bgColor="#FFFFFF" padding="1%">
+          <HStack>
+            <Image src={phoneIcon} w="75px" h="75px" borderRadius="2xl"  />
+            <Text fontSize="6xl" color="black" paddingLeft="100px">
+            012-3456789
+            </Text>
+          </HStack>
+        </Center>
+        <Container maxW="100%" maxH="fit-content" padding="20" bg="yellow.300">
+          <AspectRatio ratio={16 / 9}>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng" />
+          </AspectRatio>
+        </Container>
       </Box>
     </>
   );
