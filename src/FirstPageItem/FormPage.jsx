@@ -18,6 +18,11 @@ import { Field } from "../components/ui/field.jsx";
 import Nationality from "./Nationality.jsx";
 import SelectDate from "./DatePicker.jsx";
 import {
+  FileInput,
+  FileUploadLabel,
+  FileUploadRoot,
+} from "../components/ui/file-upload";
+import {
   BrowserRouter,
   Links,
   Route,
@@ -90,13 +95,16 @@ function FormPage() {
                   </NativeSelectField>
                 </NativeSelectRoot>
               </Field>
-              
+
               <Field label="Select Date & Time">
                 <SelectDate />
               </Field>
-              
-              <Field label="Upload Mobile Pictures/Videos" >
-                <Input type="file" className="Input" />
+
+              <Field label="Upload Mobile Pictures/Videos">
+                <FileUploadRoot gap="1" bgColor="black">
+                  <FileUploadLabel></FileUploadLabel>
+                  <FileInput />
+                </FileUploadRoot>
               </Field>
 
               <Button
