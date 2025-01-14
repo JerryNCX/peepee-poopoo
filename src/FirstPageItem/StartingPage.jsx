@@ -24,6 +24,7 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "../components/ui/accordion";
+import arrow from "../MyImage/arrow+right+chevron+chevronright+right+right+icon+icon-1320185732203239715_0px.svg";
 
 const items = [
   { value: "a", title: "Contact Us", text: "Some value 1..." },
@@ -86,6 +87,7 @@ function StartingPage() {
             </Flex>
           </HStack>
         </Box>
+
         <Box background="yellow.200" minH="80vh">
           {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
           <HStack justifyContent="space-evenly" paddingTop="100px">
@@ -118,22 +120,75 @@ function StartingPage() {
             <Image src={towTruck} aspectRatio={16 / 9} maxW="50%" maxH="45vh" />
           </HStack>
         </Box>
+
         <Center bgColor="#FFFFFF" padding="1%">
           <HStack>
-            <Image src={phoneIcon} w="75px" h="75px" borderRadius="2xl"  />
+            <Image src={phoneIcon} w="75px" h="75px" borderRadius="2xl" />
             <Text fontSize="6xl" color="black" paddingLeft="100px">
-            012-3456789
+              012-3456789
             </Text>
           </HStack>
         </Center>
+
+        <Box padding="5%" bgColor="cyan.focusRing">
+          <HStack gap="10%">
+            <Container marginBottom="30%">
+              <Stack>
+                <Text fontSize="4xl" fontWeight="bolder">
+                  Why Use Spot & Tow Service?
+                </Text>
+                <Box paddingTop="10">
+                  <Text fontSize="xl">
+                    Spot & Tow aims to create a safer and more organized
+                    <Text>community by addressing parking issues</Text>
+                    <Text>swiftly and efficiently.</Text>
+                  </Text>
+                </Box>
+              </Stack>
+                <Button color="black" top={"60"} size="2xl" _hover={{bg:"green"}} borderRadius="2xl">
+                 Learn More 
+                 <Image src={arrow} w="30px" h="30px" />
+                </Button>
+            </Container>
+
+            <Container>
+              <Stack gap="10">
+                <HStack gap="20">
+                  <Image src={truck} w="30%" h="30%" />
+                  <Box>
+                    <Center>
+                      <Text fontSize="2xl">Fast Service</Text>
+                    </Center>
+                  </Box>
+                </HStack>
+
+                <HStack gap="20">
+                  <Image src={truck} w="30%" h="30%" />
+                  <Box>
+                    <Center>
+                      <Text fontSize="2xl">Reliable Driver</Text>
+                    </Center>
+                  </Box>
+                </HStack>
+
+                <HStack gap="20">
+                  <Image src={truck} w="30%" h="30%" />
+                  <Box>
+                    <Center>
+                      <Text fontSize="2xl">Responsive Management</Text>
+                    </Center>
+                  </Box>
+                </HStack>
+              </Stack>
+            </Container>
+          </HStack>
+        </Box>
+
         <Container maxW="100%" maxH="fit-content" padding="40" bg="yellow.300">
           <AspectRatio ratio={16 / 9}>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng" />
           </AspectRatio>
         </Container>
-        <Flex>
-          
-        </Flex>
       </Box>
     </>
   );
