@@ -12,7 +12,7 @@ import {
   ProgressRoot,
   AbsoluteCenter,
 } from "@chakra-ui/react";
-import truck from "../MyImage/SEF Logo.jpg";
+import truck from "../assets/MyImage/SEF Logo.jpg";
 import { InputGroup } from "../components/ui/input-group.jsx";
 import { Field } from "../components/ui/field.jsx";
 import Nationality from "./Nationality.jsx";
@@ -60,7 +60,7 @@ function FormPage() {
               </Field>
 
               <Field label="Vehicle Information" required>
-                <Input placeholder="Vehicle Information" className="Input" />
+                <Input placeholder="BMW M4, WXX 1234" className="Input" />
               </Field>
 
               <Field
@@ -112,7 +112,7 @@ function FormPage() {
                 colorPalette="peal"
                 onClick={() => navigate("/LoadingPage")}
               >
-                Submit
+                Next
               </Button>
 
               <Text color="red.400">* Required</Text>

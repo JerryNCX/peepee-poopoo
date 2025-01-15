@@ -13,19 +13,19 @@ import {
   Stack,
   Container,
 } from "@chakra-ui/react";
-import truck from "../MyImage/SEF Logo.jpg";
-import car from "../assets/Car.jpg";
+import truck from "../assets/MyImage/SEF Logo.jpg";
+import car from "../assets/MyImage/Car.jpg";
 import { useNavigate } from "react-router-dom";
-import towTruck from "../MyImage/tow-truck-svgrepo-com.svg";
-import phoneIcon from "../MyImage/phone-call-svgrepo-com.svg";
+import towTruck from "../assets/MyImage/tow-truck-svgrepo-com.svg";
+import phoneIcon from "../assets/MyImage/phone-call-svgrepo-com.svg";
 import {
   AccordionItem,
   AccordionItemContent,
   AccordionItemTrigger,
   AccordionRoot,
 } from "../components/ui/accordion";
-import arrow from "../MyImage/arrow+right+chevron+chevronright+right+right+icon+icon-1320185732203239715_0px.svg";
-import cat from "../MyImage/1801287.svg";
+import arrow from "../assets/MyImage/arrow+right+chevron+chevronright+right+right+icon+icon-1320185732203239715_0px.svg";
+import cat from "../assets/MyImage/1801287.svg";
 import { Rating } from "../components/ui/rating";
 
 const items = [
@@ -33,6 +33,10 @@ const items = [
   { value: "b", title: "Our Story", text: "Some value 2..." },
   { value: "c", title: "Service", text: "Some value 3..." },
   // { value: "d", title: "Login", text: "Admin" },
+];
+const review =[
+  {value:"0", pic:cat , name:"Jerry", rating:"4", comment:"Service Gempak Terbaik, Penghantaran Laju. Tersangat Gempak!!!!"},
+  {value:"1", pic:car, name:"Azwa", rating:"5", comment:" Laju driver macam charles leclerc!!"},
 ];
 
 function StartingPage() {
@@ -206,75 +210,25 @@ function StartingPage() {
                 </Text>
 
                 <Flex>
-                  <HStack>
-                    <Center gap="14">
-                      {/* <Image src={cat} w="5%" /> */}
-                      <Image src={truck} w="15%" borderRadius="full" />
-                      <VStack>
-                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
-                        <Rating defaultValue={4} size="lg" />
-                      </VStack>
-                    </Center>
-                  </HStack>
-                  <Box bgColor="#FFFFFF" marginTop="20px">
-                    <Text color="black" padding="5">
-                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
-                      Gempak!!!
-                    </Text>
-                  </Box>
+                 <Stack gap="30px">
 
-                  <HStack>
-                    <Center gap="14">
-                      {/* <Image src={cat} w="5%" /> */}
-                      <Image src={truck} w="15%" borderRadius="full" />
-                      <VStack>
-                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
-                        <Rating defaultValue={4} size="lg" />
-                      </VStack>
-                    </Center>
-                  </HStack>
-                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
-                    <Text color="black" padding="5">
-                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
-                      Gempak!!!
-                    </Text>
-                  </Box>
-                </Flex>
+                    {review.map((item, index) => (
+                      <Center gap="14" key={index} value={item.value}>
+                        <Image src={item.pic} maxW="10%" />
+                        <VStack>
+                        <Text fontSize="2xl">{item.name}</Text>
+                        <Rating value={item.rating} />
+                        <Box>
+                          <Text fontSize="md">{item.comment}</Text>
+                        </Box>
+                        </VStack>
+                      </Center>
+                    ))}
 
-                <Flex>
-                  <HStack>
-                    <Center gap="14">
-                      {/* <Image src={cat} w="5%" /> */}
-                      <Image src={truck} w="15%" borderRadius="full" />
-                      <VStack>
-                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
-                        <Rating defaultValue={4} size="lg" />
-                      </VStack>
-                    </Center>
-                  </HStack>
-                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
-                    <Text color="black" padding="5">
-                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
-                      Gempak!!!
-                    </Text>
-                  </Box>
-
-                  <HStack>
-                    <Center gap="14">
-                      {/* <Image src={cat} w="5%" /> */}
-                      <Image src={truck} w="15%" borderRadius="full" />
-                      <VStack>
-                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
-                        <Rating defaultValue={4} size="lg" />
-                      </VStack>
-                    </Center>
-                  </HStack>
-                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
-                    <Text color="black" padding="5">
-                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
-                      Gempak!!!
-                    </Text>
-                  </Box>
+                    </Stack>
+              
+               
+                  
                 </Flex>
               </VStack>
             </Center>
@@ -286,6 +240,40 @@ function StartingPage() {
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng" />
           </AspectRatio>
         </Container>
+
+        <Flex bgColor="grey" padding="2%" justifyContent="space-evenly">
+          <Text fontSize="4xl">Spot & Tow</Text>
+          <HStack gap="10">
+            <VStack >
+              <Text>Company</Text>
+              <Button>How It Works</Button>
+              <Button>Pricing</Button>
+              <Button>Docs</Button>
+            </VStack>
+
+            <VStack>
+              <Text>Resource</Text>
+              <Button>AzwaniOrangKayaBaru</Button>
+              <Button>AzwaniOrangKayaBaru</Button>
+              <Button>AzwaniOrangKayaBaru</Button>
+              <Button>AzwaniOrangKayaBaru</Button>
+            </VStack>
+
+            <VStack>
+              <Text>About</Text>
+              <Button>How It Works</Button>
+            </VStack>
+          </HStack>
+        </Flex>
+
+        <Center
+          padding="2% 0% 6% 0%"
+          color="black"
+          bgColor="#FFFFFF"
+          fontSize="sm"
+        >
+          Copyright @ 2024 Spot & Tow
+        </Center>
       </Box>
     </>
   );
