@@ -25,6 +25,8 @@ import {
   AccordionRoot,
 } from "../components/ui/accordion";
 import arrow from "../MyImage/arrow+right+chevron+chevronright+right+right+icon+icon-1320185732203239715_0px.svg";
+import cat from "../MyImage/1801287.svg";
+import { Rating } from "../components/ui/rating";
 
 const items = [
   { value: "a", title: "Contact Us", text: "Some value 1..." },
@@ -56,17 +58,18 @@ function StartingPage() {
             </Flex>
             <Flex gap="20">
               <AccordionRoot collapsible>
-                <HStack gap="20">
+                <HStack gap="10">
                   {items.map((item, index) => (
                     <AccordionItem key={index} value={item.value}>
                       <AccordionItemTrigger color="black">
-                        <Box w="fit-content">{item.title}</Box>
+                        <Box w="100px">{item.title}</Box>
                       </AccordionItemTrigger>
                       <AccordionItemContent>
                         <Button>{item.text}</Button>
                       </AccordionItemContent>
                     </AccordionItem>
                   ))}
+
                   <Container>
                     <AccordionRoot collapsible>
                       <AccordionItem w="180px">
@@ -132,7 +135,7 @@ function StartingPage() {
 
         <Box padding="5%" bgColor="cyan.focusRing">
           <HStack gap="10%">
-            <Container marginBottom="30%">
+            <Container bottom="10">
               <Stack>
                 <Text fontSize="4xl" fontWeight="bolder">
                   Why Use Spot & Tow Service?
@@ -145,16 +148,22 @@ function StartingPage() {
                   </Text>
                 </Box>
               </Stack>
-                <Button color="black" top={"60"} size="2xl" _hover={{bg:"green"}} borderRadius="2xl">
-                 Learn More 
-                 <Image src={arrow} w="30px" h="30px" />
-                </Button>
+              <Button
+                color="black"
+                top={"20"}
+                size="2xl"
+                _hover={{ bg: "green" }}
+                borderRadius="2xl"
+              >
+                Learn More
+                <Image src={arrow} w="30px" h="30px" />
+              </Button>
             </Container>
 
             <Container>
               <Stack gap="10">
                 <HStack gap="20">
-                  <Image src={truck} w="30%" h="30%" />
+                  <Image src={truck} w="20%" h="20%" />
                   <Box>
                     <Center>
                       <Text fontSize="2xl">Fast Service</Text>
@@ -163,7 +172,7 @@ function StartingPage() {
                 </HStack>
 
                 <HStack gap="20">
-                  <Image src={truck} w="30%" h="30%" />
+                  <Image src={truck} w="20%" h="20%" />
                   <Box>
                     <Center>
                       <Text fontSize="2xl">Reliable Driver</Text>
@@ -172,7 +181,7 @@ function StartingPage() {
                 </HStack>
 
                 <HStack gap="20">
-                  <Image src={truck} w="30%" h="30%" />
+                  <Image src={truck} w="20%" h="20%" />
                   <Box>
                     <Center>
                       <Text fontSize="2xl">Responsive Management</Text>
@@ -182,6 +191,94 @@ function StartingPage() {
               </Stack>
             </Container>
           </HStack>
+        </Box>
+
+        <Box bgColor="#345345">
+          <Container>
+            <Center padding="12">
+              <VStack>
+                <Text
+                  fontSize="5xl"
+                  fontWeight="extrabold"
+                  paddingBottom="50px"
+                >
+                  Review of Spot & Tow
+                </Text>
+
+                <Flex>
+                  <HStack>
+                    <Center gap="14">
+                      {/* <Image src={cat} w="5%" /> */}
+                      <Image src={truck} w="15%" borderRadius="full" />
+                      <VStack>
+                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
+                        <Rating defaultValue={4} size="lg" />
+                      </VStack>
+                    </Center>
+                  </HStack>
+                  <Box bgColor="#FFFFFF" marginTop="20px">
+                    <Text color="black" padding="5">
+                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
+                      Gempak!!!
+                    </Text>
+                  </Box>
+
+                  <HStack>
+                    <Center gap="14">
+                      {/* <Image src={cat} w="5%" /> */}
+                      <Image src={truck} w="15%" borderRadius="full" />
+                      <VStack>
+                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
+                        <Rating defaultValue={4} size="lg" />
+                      </VStack>
+                    </Center>
+                  </HStack>
+                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
+                    <Text color="black" padding="5">
+                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
+                      Gempak!!!
+                    </Text>
+                  </Box>
+                </Flex>
+
+                <Flex>
+                  <HStack>
+                    <Center gap="14">
+                      {/* <Image src={cat} w="5%" /> */}
+                      <Image src={truck} w="15%" borderRadius="full" />
+                      <VStack>
+                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
+                        <Rating defaultValue={4} size="lg" />
+                      </VStack>
+                    </Center>
+                  </HStack>
+                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
+                    <Text color="black" padding="5">
+                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
+                      Gempak!!!
+                    </Text>
+                  </Box>
+
+                  <HStack>
+                    <Center gap="14">
+                      {/* <Image src={cat} w="5%" /> */}
+                      <Image src={truck} w="15%" borderRadius="full" />
+                      <VStack>
+                        <Text fontSize="xl">Jerry Ng Choong Xin</Text>
+                        <Rating defaultValue={4} size="lg" />
+                      </VStack>
+                    </Center>
+                  </HStack>
+                  <Box bgColor="#FFFFFF" marginTop="20px" maxW="40%">
+                    <Text color="black" padding="5">
+                      Service Gempak Terbaik, Penghantaran Laju, Tersangat
+                      Gempak!!!
+                    </Text>
+                  </Box>
+                </Flex>
+              </VStack>
+            </Center>
+          </Container>
         </Box>
 
         <Container maxW="100%" maxH="fit-content" padding="40" bg="yellow.300">
