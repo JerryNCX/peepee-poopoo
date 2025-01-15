@@ -12,6 +12,7 @@ import {
   AspectRatio,
   Stack,
   Container,
+  Link,
 } from "@chakra-ui/react";
 import truck from "../assets/MyImage/SEF Logo.jpg";
 import car from "../assets/MyImage/Car.jpg";
@@ -34,9 +35,21 @@ const items = [
   { value: "c", title: "Service", text: "Some value 3..." },
   // { value: "d", title: "Login", text: "Admin" },
 ];
-const review =[
-  {value:"0", pic:cat , name:"Jerry", rating:"4", comment:"Service Gempak Terbaik, Penghantaran Laju. Tersangat Gempak!!!!"},
-  {value:"1", pic:car, name:"Azwa", rating:"5", comment:" Laju driver macam charles leclerc!!"},
+const review = [
+  {
+    value: "0",
+    pic: cat,
+    name: "Jerry",
+    rating: "4",
+    comment: "Service Gempak Terbaik, Penghantaran Laju. Tersangat Gempak!!!!",
+  },
+  {
+    value: "1",
+    pic: car,
+    name: "Azwa",
+    rating: "5",
+    comment: " Laju driver macam charles leclerc!!",
+  },
 ];
 
 function StartingPage() {
@@ -210,25 +223,20 @@ function StartingPage() {
                 </Text>
 
                 <Flex>
-                 <Stack gap="30px">
-
+                  <Stack gap="30px">
                     {review.map((item, index) => (
                       <Center gap="14" key={index} value={item.value}>
                         <Image src={item.pic} maxW="10%" />
                         <VStack>
-                        <Text fontSize="2xl">{item.name}</Text>
-                        <Rating value={item.rating} />
-                        <Box>
-                          <Text fontSize="md">{item.comment}</Text>
-                        </Box>
+                          <Text fontSize="2xl">{item.name}</Text>
+                          <Rating value={item.rating} />
+                          <Box>
+                            <Text fontSize="md">{item.comment}</Text>
+                          </Box>
                         </VStack>
                       </Center>
                     ))}
-
-                    </Stack>
-              
-               
-                  
+                  </Stack>
                 </Flex>
               </VStack>
             </Center>
@@ -241,30 +249,72 @@ function StartingPage() {
           </AspectRatio>
         </Container>
 
-        <Flex bgColor="grey" padding="2%" justifyContent="space-evenly">
-          <Text fontSize="4xl">Spot & Tow</Text>
-          <HStack gap="10">
-            <VStack >
-              <Text>Company</Text>
-              <Button>How It Works</Button>
-              <Button>Pricing</Button>
-              <Button>Docs</Button>
-            </VStack>
+        <Box
+          p={{ base: 5, md: 8 }}
+          marginInline="auto"
+          bgColor="whiteAlpha.600"
+          w="100vw"
+        >
+          <Stack
+            spacing={{ base: 8, md: 0 }}
+            justifyContent="space-between"
+            direction={{ base: "column", md: "row" }}
+            p="0% 3% 0% 3%"
+          >
+            <Box maxW="300px">
+              <HStack gap="5">
+              <Image w="100px" src={cat} />
+                    <Text fontSize="3xl">
+                      Spot & Tow
+                    </Text>
+              </HStack>
+                    
+              <Text mt={2} color="white" fontSize="md">
+                We offer for good quality services at affordable prices.
+              </Text>
+            </Box>
 
-            <VStack>
-              <Text>Resource</Text>
-              <Button>AzwaniOrangKayaBaru</Button>
-              <Button>AzwaniOrangKayaBaru</Button>
-              <Button>AzwaniOrangKayaBaru</Button>
-              <Button>AzwaniOrangKayaBaru</Button>
-            </VStack>
-
-            <VStack>
-              <Text>About</Text>
-              <Button>How It Works</Button>
-            </VStack>
-          </HStack>
-        </Flex>
+            <HStack
+              spacing={4}
+              d={{ base: "none", sm: "flex" }}
+              justifyContent={{ sm: "space-between", md: "normal" }}
+            >
+              <VStack spacing={4} alignItems="flex-start">
+                <Text fontSize="md" fontWeight="bold">
+                  About
+                </Text>
+                <VStack spacing={2} alignItems="flex-start" color="gray.500">
+                  <Link>Contrinute</Link>
+                  <Link>Media assets</Link>
+                  <Link>Changelog</Link>
+                  <Link>Releases</Link>
+                </VStack>
+              </VStack>
+              <VStack spacing={4} alignItems="flex-start">
+                <Text fontSize="md" fontWeight="bold">
+                  Community
+                </Text>
+                <VStack spacing={2} alignItems="flex-start" color="gray.500">
+                  <Link>Chat on Discord</Link>
+                  <Link>Follow on Twitter</Link>
+                  <Link>Follow on Github</Link>
+                  <Link>Github discussions</Link>
+                </VStack>
+              </VStack>
+              <VStack spacing={4} alignItems="flex-start">
+                <Text fontSize="md" fontWeight="bold">
+                  Project
+                </Text>
+                <VStack spacing={2} alignItems="flex-start" color="gray.500">
+                  <Link>TemplatesKart</Link>
+                  <Link>Documentation</Link>
+                  <Link>Github organization</Link>
+                  <Link>npm organization</Link>
+                </VStack>
+              </VStack>
+            </HStack>
+          </Stack>
+        </Box>
 
         <Center
           padding="2% 0% 6% 0%"
