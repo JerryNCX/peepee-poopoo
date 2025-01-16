@@ -35,12 +35,12 @@ function FormPage() {
   const navigate = useNavigate();
   return (
     <>
-      <Box className="Page" bgColor="#123456">
+      <Box className="Page" bgColor="#123456" h="145vh">
         <AbsoluteCenter>
           <Flex justifyContent="center">
             <VStack gap="3">
               <Box>
-                <VStack paddingBottom="40px">
+                <VStack>
                   <Text fontSize="7xl" fontWeight="bold">
                     Spot & Tow
                   </Text>
@@ -110,7 +110,7 @@ function FormPage() {
               <Button
                 _hover={{ bg: "green" }}
                 colorPalette="peal"
-                onClick={() => navigate("/LoadingPage")}
+                onClick={() => navigate("/Payment")}
               >
                 Next
               </Button>

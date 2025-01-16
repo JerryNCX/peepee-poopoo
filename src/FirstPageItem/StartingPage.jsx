@@ -56,8 +56,8 @@ function StartingPage() {
   const navigate = useNavigate();
   return (
     <>
-      <Box maxWidth="100%">
-        <Box background="yellow.100">
+      <Box w="100vw">
+        <Box background="yellow.100" >
           <HStack padding="3% 0% 3% 0%" justifyContent="space-around">
             <Flex paddingLeft="10%">
               <Image src={truck} w="100px" h="100px" borderRadius="4xl" />
@@ -108,7 +108,7 @@ function StartingPage() {
           </HStack>
         </Box>
 
-        <Box background="yellow.200" minH="80vh">
+        <Box background="yellow.200" minH="80vh" >
           {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
           <HStack justifyContent="space-evenly" paddingTop="100px">
             <VStack>
