@@ -46,7 +46,7 @@ const review = [
   {
     value: "1",
     pic: car,
-    name: "Azwa",
+    name: "Irfan",
     rating: "5",
     comment: " Laju driver macam charles leclerc!!",
   },
