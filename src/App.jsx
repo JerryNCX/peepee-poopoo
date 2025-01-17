@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<StartingPage />} />
           <Route path="/Formpage" element={<FormPage />} />
           <Route path="/Payment" element={<Payment />} />
+          <Route path="/Progress" element={<ProcessingPage />} />
         </Routes>
       </BrowserRouter>
       {/* <ProcessingPage /> */}

@@ -110,7 +110,7 @@ export const FileUploadList = React.forwardRef(
 export const FileInput = React.forwardRef(function FileInput(props, ref) {
   const inputRecipe = useRecipe({ key: 'input' })
   const [recipeProps, restProps] = inputRecipe.splitVariantProps(props)
-  const { placeholder = 'Select file(s)', ...rest } = restProps
+  const { placeholder = 'Upload file here', ...rest } = restProps
   return (
     <ChakraFileUpload.Trigger asChild>
       <Button
