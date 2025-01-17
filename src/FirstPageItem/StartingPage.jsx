@@ -95,7 +95,7 @@ function StartingPage() {
                         </AccordionItemTrigger>
                         <AccordionItemContent>
                           <VStack gap="2">
-                            <Button>Admin</Button>
+                            <Button onClick={() => navigate("/Admin")}>Admin</Button>
                             <Button>System Administration</Button>
                           </VStack>
                         </AccordionItemContent>
