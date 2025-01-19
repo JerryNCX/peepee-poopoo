@@ -51,13 +51,18 @@ const review = [
     comment: " Laju driver macam charles leclerc!!",
   },
 ];
+const Reason = [
+  { value: "0", title: "Fast Service", Image: truck },
+  { value: "1", title: "Reliable Driver", Image: truck },
+  { value: "2", title: "Responsive Management", Image: truck },
+];
 
 function StartingPage() {
   const navigate = useNavigate();
   return (
     <>
       <Box w="100vw">
-        <Box background="yellow.100" >
+        <Box background="yellow.100">
           <HStack padding="3% 0% 3% 0%" justifyContent="space-around">
             <Flex paddingLeft="10%">
               <Image src={truck} w="100px" h="100px" borderRadius="4xl" />
@@ -95,7 +100,9 @@ function StartingPage() {
                         </AccordionItemTrigger>
                         <AccordionItemContent>
                           <VStack gap="2">
-                            <Button onClick={() => navigate("/Admin")}>Admin</Button>
+                            <Button onClick={() => navigate("/Admin")}>
+                              Admin
+                            </Button>
                             <Button>System Administration</Button>
                           </VStack>
                         </AccordionItemContent>
@@ -108,7 +115,7 @@ function StartingPage() {
           </HStack>
         </Box>
 
-        <Box background="yellow.200" minH="80vh" >
+        <Box background="yellow.200" minH="80vh">
           {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
           <HStack justifyContent="space-evenly" paddingTop="100px">
             <VStack>
@@ -179,32 +186,16 @@ function StartingPage() {
 
             <Container>
               <Stack gap="10">
-                <HStack gap="20">
-                  <Image src={truck} w="20%" h="20%" />
-                  <Box>
-                    <Center>
-                      <Text fontSize="2xl">Fast Service</Text>
-                    </Center>
-                  </Box>
-                </HStack>
-
-                <HStack gap="20">
-                  <Image src={truck} w="20%" h="20%" />
-                  <Box>
-                    <Center>
-                      <Text fontSize="2xl">Reliable Driver</Text>
-                    </Center>
-                  </Box>
-                </HStack>
-
-                <HStack gap="20">
-                  <Image src={truck} w="20%" h="20%" />
-                  <Box>
-                    <Center>
-                      <Text fontSize="2xl">Responsive Management</Text>
-                    </Center>
-                  </Box>
-                </HStack>
+                {Reason.map((item, index) => (
+                  <HStack gap="20" key={index} value={item.value}>
+                    <Image src={item.Image} w="20%" h="20%" />
+                    <Box>
+                      <Center>
+                        <Text fontSize="2xl">{item.title}</Text>
+                      </Center>
+                    </Box>
+                  </HStack>
+                ))}
               </Stack>
             </Container>
           </HStack>
@@ -263,12 +254,10 @@ function StartingPage() {
           >
             <Box maxW="300px">
               <HStack gap="5">
-              <Image w="100px" src={cat} />
-                    <Text fontSize="3xl">
-                      Spot & Tow
-                    </Text>
+                <Image w="100px" src={cat} />
+                <Text fontSize="3xl">Spot & Tow</Text>
               </HStack>
-                    
+
               <Text mt={2} color="white" fontSize="md">
                 We offer for good quality services at affordable prices.
               </Text>
