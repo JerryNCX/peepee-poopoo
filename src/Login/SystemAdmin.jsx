@@ -47,8 +47,8 @@ export default function SystemAdmin() {
   const navigate = useNavigate();
   return (
     <>
-      <Box maxH="100%">
-        <Box background="white" padding="3% 0% 3%">
+      <Box maxH="100%" background="yellow.100">
+        <Box padding="3% 0% 3%">
           <HStack justifyContent="space-around">
             <Flex paddingLeft="5%">
               <Image src={truck} w="100px" h="100px" borderRadius="4xl" />
@@ -101,7 +101,7 @@ export default function SystemAdmin() {
           </HStack>
         </Box>
 
-        <Box bgColor="white" h="100%" paddingBottom="5%">
+        <Box h="100%" paddingBottom="5%">
           <Center>
             <Stack w="50%" alignItems="center" gap="7">
             <Item Name={true} name="System Administration" />
