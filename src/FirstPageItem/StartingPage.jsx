@@ -29,6 +29,7 @@ import arrow from "../assets/MyImage/arrow+right+chevron+chevronright+right+righ
 import cat from "../assets/MyImage/1801287.svg";
 import { Rating } from "../components/ui/rating";
 
+
 const items = [
   { value: "a", title: "Contact Us", text: "Some value 1..." },
   { value: "b", title: "Our Story", text: "Some value 2..." },
