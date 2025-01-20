@@ -43,7 +43,7 @@ function Item({ name, Name }) {
   );
 }
 
-export default function Admin() {
+export default function SystemAdmin() {
   const navigate = useNavigate();
   return (
     <>
@@ -104,7 +104,7 @@ export default function Admin() {
         <Box bgColor="white" h="100%" paddingBottom="5%">
           <Center>
             <Stack w="50%" alignItems="center" gap="7">
-            <Item Name={true} name="Admin" />
+            <Item Name={true} name="System Administration" />
               <Image src={cat} maxW="200px" borderRadius="full" />
               <Input placeholder="Enter your username" />
               <Input placeholder="Enter your password" />

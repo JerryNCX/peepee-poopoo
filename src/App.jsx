@@ -6,6 +6,7 @@ import StartingPage from "./FirstPageItem/StartingPage";
 import LoadingConditional from "./SecondPageItem/LoadingConditional";
 import Payment from "./SecondPageItem/Payment";
 import Admin from "./Login/Admin.jsx"
+import SystemAdmin from "./Login/SystemAdmin.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Payment" element={<Payment />} />
           <Route path="/Progress" element={<ProcessingPage />} />
           <Route path="/Admin" element={<Admin />} />
+          <Route path="/SystemAdmin" element={<SystemAdmin />} />
         </Routes>
       </BrowserRouter>
       {/* <ProcessingPage /> */}

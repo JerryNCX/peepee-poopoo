@@ -7,13 +7,10 @@ import {
   HStack,
   Button,
   VStack,
-  NativeSelectRoot,
-  NativeSelectField,
   ProgressRoot,
   AbsoluteCenter,
+  // NativeSelectField, NativeSelectRoot,
 } from "@chakra-ui/react";
-import truck from "../assets/MyImage/SEF Logo.jpg";
-import { InputGroup } from "../components/ui/input-group.jsx";
 import { Field } from "../components/ui/field.jsx";
 import Nationality from "./Nationality.jsx";
 import SelectDate from "./DatePicker.jsx";
@@ -22,14 +19,11 @@ import {
   FileUploadLabel,
   FileUploadRoot,
 } from "../components/ui/file-upload";
+import { useNavigate } from "react-router-dom";
 import {
-  BrowserRouter,
-  Links,
-  Route,
-  Routes,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+  NativeSelectField,
+  NativeSelectRoot,
+} from "../components/ui/native-select";
 
 function FormPage() {
   const navigate = useNavigate();

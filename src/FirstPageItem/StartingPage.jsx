@@ -103,7 +103,7 @@ function StartingPage() {
                             <Button onClick={() => navigate("/Admin")}>
                               Admin
                             </Button>
-                            <Button>System Administration</Button>
+                            <Button onClick={() => navigate("/SystemAdmin")}>System Administration</Button>
                           </VStack>
                         </AccordionItemContent>
                       </AccordionItem>
