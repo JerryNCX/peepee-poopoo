@@ -115,7 +115,7 @@ function StartingPage() {
           </HStack>
         </Box>
 
-        <Box background="yellow.200" minH="80vh">
+        <Box background="yellow.200" h="80vh">
           {/* <Box css={{backgroundImage: `url(${car})`}} backgroundSize="cover" backgroundRepeat="no-repeat" backgroundPosition="center" > */}
           <HStack justifyContent="space-evenly" paddingTop="100px">
             <VStack>
