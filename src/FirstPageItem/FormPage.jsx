@@ -153,6 +153,7 @@ function FormPage() {
               placeholder="Select Date & Time"
               {...register("Select Date & Time", { required: true })}
             />
+
             <Field label="Upload Mobile Pictures/Videos" w="50%">
               <FileUploadRoot gap="1" bgColor="black">
                 <FileUploadLabel></FileUploadLabel>

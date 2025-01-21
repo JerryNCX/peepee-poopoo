@@ -85,12 +85,12 @@ export default function SystemAdmin() {
                           Login
                         </AccordionItemTrigger>
                         <AccordionItemContent>
-                          <VStack gap="2">
+                          <Stack gap="2">
                             <Button onClick={() => navigate("/Admin")}>
                               Admin
                             </Button>
                             <Button onClick={() => navigate("/SystemAdmin")}>System Administration</Button>
-                          </VStack>
+                          </Stack>
                         </AccordionItemContent>
                       </AccordionItem>
                     </AccordionRoot>

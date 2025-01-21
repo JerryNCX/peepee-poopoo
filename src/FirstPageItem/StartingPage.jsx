@@ -49,7 +49,14 @@ const review = [
     pic: car,
     name: "Irfan",
     rating: "5",
-    comment: " Laju driver macam charles leclerc!!",
+    comment: "Laju driver macam charles leclerc!!",
+  },
+  {
+    value: "2",
+    pic: car,
+    name: "Azwa",
+    rating: "4",
+    comment: "Laju driver macam charles leclerc!!",
   },
 ];
 const Reason = [
