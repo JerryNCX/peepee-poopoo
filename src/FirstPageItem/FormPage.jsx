@@ -26,6 +26,22 @@ import {
   NativeSelectRoot,
 } from "../components/ui/native-select";
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+
+const [data, setData] = useState([]);
+const [error, SetError] = useState(null);
+useEffect(() => {
+  const fetchData = async () => {
+    try{
+      const response = await axios.get('../../backend/connect.cjs')
+    } catch (err) {
+      SetError(err.message);
+    }
+  };
+
+fetchData()
+},[]);
+
 
 function FormPage() {
   const navigate = useNavigate();
@@ -148,7 +164,7 @@ function FormPage() {
             <select {...register("Service Options", { required: true })}>
               <option value="Towing">Towing</option>
             </select>
-            <input
+            <SelectDate
               type="datetime"
               placeholder="Select Date & Time"
               {...register("Select Date & Time", { required: true })}
@@ -166,7 +182,7 @@ function FormPage() {
               colorPalette="peal"
               onClick={() => navigate("/Payment")}
             >
-              <input type="submit" />
+              <input type="submit"/>
             </Button>
           </VStack>
         </form>

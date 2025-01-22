@@ -21,7 +21,6 @@ import {
 import truck from "../assets/MyImage/SEF Logo.jpg";
 import { useNavigate } from "react-router-dom";
 import cat from "../assets/MyImage/1801287.svg";
-import { ThemeContext } from "@emotion/react";
 
 const items = [
   { value: "a", title: "Contact Us", text: "Some value 1..." },

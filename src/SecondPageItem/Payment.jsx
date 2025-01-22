@@ -38,7 +38,7 @@ export default function Payment() {
                 width="300px"
                 height="300px"
               /> */}
-              <QrCode value="https://monkeytype.com/" />
+              <QrCode value="https://github.com/" />
             </Center>
 
             <Center>
