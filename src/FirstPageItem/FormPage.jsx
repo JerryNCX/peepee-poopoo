@@ -26,21 +26,21 @@ import {
   NativeSelectRoot,
 } from "../components/ui/native-select";
 import { useForm } from "react-hook-form";
-import axios from 'axios';
+// import axios from 'axios';
 
-const [data, setData] = useState([]);
-const [error, SetError] = useState(null);
-useEffect(() => {
-  const fetchData = async () => {
-    try{
-      const response = await axios.get('../../backend/connect.cjs')
-    } catch (err) {
-      SetError(err.message);
-    }
-  };
+// const [data, setData] = useState([]);
+// const [error, SetError] = useState(null);
+// useEffect(() => {
+//   const fetchData = async () => {
+//     try{
+//       const response = await axios.get('../../backend/connect.cjs')
+//     } catch (err) {
+//       SetError(err.message);
+//     }
+//   };
 
-fetchData()
-},[]);
+// fetchData()
+// },[]);
 
 
 function FormPage() {
