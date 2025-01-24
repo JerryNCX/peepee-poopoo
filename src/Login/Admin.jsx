@@ -22,6 +22,8 @@ import truck from "../assets/MyImage/SEF Logo.jpg";
 import { useNavigate } from "react-router-dom";
 import cat from "../assets/MyImage/1801287.svg";
 
+// database password: KNSfByDZLutSR2l5
+
 const items = [
   { value: "a", title: "Contact Us", text: "Some value 1..." },
   { value: "b", title: "Our Story", text: "Some value 2..." },
