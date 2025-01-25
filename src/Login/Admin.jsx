@@ -90,7 +90,9 @@ export default function Admin() {
                             <Button onClick={() => navigate("/Admin")}>
                               Admin
                             </Button>
-                            <Button onClick={() => navigate("/SystemAdmin")}>System Administration</Button>
+                            <Button onClick={() => navigate("/SystemAdmin")}>
+                              System Administration
+                            </Button>
                           </VStack>
                         </AccordionItemContent>
                       </AccordionItem>
@@ -105,7 +107,7 @@ export default function Admin() {
         <Box h="100%" paddingBottom="5%">
           <Center>
             <Stack w="50%" alignItems="center" gap="7">
-            <Item Name={true} name="Admin" />
+              <Item Name={true} name="Admin" />
               <Image src={cat} maxW="200px" borderRadius="full" />
               <Input placeholder="Enter your username" />
               <Input placeholder="Enter your password" />
@@ -114,6 +116,7 @@ export default function Admin() {
                 variant="solid"
                 _hover={{ bg: "green" }}
                 maxW="200px"
+                onClick={() => navigate("/AdminDataManage")}
               >
                 Login
               </Button>
