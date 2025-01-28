@@ -18,13 +18,13 @@ import {
   PaginationPrevTrigger,
   PaginationRoot,
 } from "../components/ui/pagination";
-import { useState } from "react";
-// import { DeleteIcon } from "@chakra-ui/icons";
+import { useState,useNavigate } from "react";
+import BookingConfirmation from "./BookingConfirmation.jsx";
 
 const pageSize = 1;
 const count = 5;
 const items =[
-  {value:"0", text:"Booking Confirmation" },
+  {value:"0", text:"Booking Confirmation", path:BookingConfirmation}, 
   {value:"1", text:"Available Tow Truck" },
   {value:"2", text:"Assignations" },
   {value:"3", text:"Invioce" },
@@ -32,6 +32,7 @@ const items =[
 ];
 
 export default function AdminDataManage() {
+  // const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const startRange = (page - 1) * pageSize;
   const endRange = startRange + pageSize;
@@ -56,6 +57,7 @@ export default function AdminDataManage() {
         <Container>
           <Center>
             <Stack alignItems="center">
+              {visibleItems.map((item, index) => (
               <PaginationRoot
                 count={count}
                 pageSize={pageSize}
@@ -63,17 +65,18 @@ export default function AdminDataManage() {
                 onPageChange={(e) => setPage(e.page)}
                 size="lg"
                 variant="solid"
+                key={item} value={index}
                 >
                 <HStack>
                   <PaginationPrevTrigger color="black" />
-                  <PaginationItems color="black" />
+                  <PaginationItems color="black"></PaginationItems>
                   <PaginationNextTrigger color="black" />
                 </HStack>
-              </PaginationRoot>
-                {visibleItems.map((item, index) => (
-                  <Text key={item} value={index} color="black" fontSize="4xl">
+                  <Center color="black" fontSize="4xl">
                     {item.text}
-                  </Text>
+                  </Center>
+                  {item.path}
+              </PaginationRoot>
                 ))}
             </Stack>
           </Center>

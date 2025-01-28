@@ -1,9 +1,10 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+// const mongoose = require("mongoose");
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://ncx030715:ncx030715@softwareengfundementals.3rnna.mongodb.net/ForAdmin?retryWrites=true&w=majority&appName=SoftwareEngFundementals"
+      "mongodb+srv://ncx030715:KNSfByDZLutSR2l5@softwareengfundementals.3rnna.mongodb.net/ForAdmin?retryWrites=true&w=majority&appName=SoftwareEngFundementals"
     );
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
