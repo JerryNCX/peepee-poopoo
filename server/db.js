@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 export const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://ncx030715:KNSfByDZLutSR2l5@softwareengfundementals.3rnna.mongodb.net/ForAdmin?retryWrites=true&w=majority&appName=SoftwareEngFundementals"
+      "mongodb+srv://ncx030715:HoCd0Ryj4UQSjfl0@softwareengfundementals.3rnna.mongodb.net/ForAdmin?retryWrites=true&w=majority&appName=SoftwareEngFundementals"
     );
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
@@ -12,5 +12,3 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
-
-module.exports = connectDB;

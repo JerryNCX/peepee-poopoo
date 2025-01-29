@@ -37,6 +37,7 @@ export default function AdminDataManage() {
   const startRange = (page - 1) * pageSize;
   const endRange = startRange + pageSize;
   const visibleItems = items.slice(startRange, endRange);
+
   return (
     <>
       <Box bg="white" p="1%">

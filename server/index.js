@@ -1,10 +1,11 @@
 // mongodb+srv://ncx030715:KNSfByDZLutSR2l5@softwareengfundementals.3rnna.mongodb.net/?retryWrites=true&w=majority&appName=SoftwareEngFundementals
 // IPv4: 8.8.8.8 / DNS on Https (On)
-const express = require("express");
-const connectDB = require("./db.js");
-const adminModel = require("./models/admin.js");
+import mongoose from "mongoose";
+import express from "express";
+import { connectDB } from "./db.js";
+import adminModel from "./models/admin.js";
 // const bookingConfirmationModel = require("./models/bookingConfirmation.js");
-const cors = require("cors");
+import cors from "cors";
 
 const app = express();
 app.use(express.json());

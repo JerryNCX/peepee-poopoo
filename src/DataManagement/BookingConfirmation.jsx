@@ -46,15 +46,15 @@ const detail = [
 ];
 
 export default function BookingConfirmation() {
-  // const [admin, setAdmin] = useState([]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await fetch("http://localhost:3000");
-  //     const data = await res.json();
-  //     setAdmin(data.admin);
-  //   };
-  //   fetchData();
-  // }, []);
+  const [admin, setAdmin] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("http://localhost:3000");
+      const data = await res.json();
+      setAdmin(data.admin);
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <TableScrollArea>
