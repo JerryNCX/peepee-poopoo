@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const bookingConfirmationSchema = new mongoose.Schema({
   detail: {
@@ -6,7 +6,7 @@ const bookingConfirmationSchema = new mongoose.Schema({
     required: true,
   },
   Image: {
-    File: String,
+    type: String,
     required: true,
   },
   time: {
@@ -26,4 +26,4 @@ const bookingConfirmationModel = mongoose.model(
   "bookingConfirmation",
   bookingConfirmationSchema
 );
-module.exports = bookingConfirmationModel;
+export default bookingConfirmationModel;

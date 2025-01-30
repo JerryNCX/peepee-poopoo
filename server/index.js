@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import express from "express";
 import { connectDB } from "./db.js";
 import adminModel from "./models/admin.js";
-// const bookingConfirmationModel = require("./models/bookingConfirmation.js");
+import bookingConfirmationModel from "./models/bookingConfirmation.js";
 import cors from "cors";
 
 const app = express();
@@ -22,10 +22,10 @@ app.post("/api/admin", async (req, res) => {
   return res.json({ admin: response });
 });
 
-// app.post("/api/BookingConformation", async (req, res) => {
-//   const response = await bookingConfirmationModel.find();
-//   return res.json({ bookingConfirmation: response });
-// });
+app.post("/api/BookingConformation", async (req, res) => {
+    const response = await bookingConfirmationModel.find();
+    return res.json({ bookingConfirmation: response });
+  });
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
