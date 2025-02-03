@@ -20,6 +20,8 @@ const bookingConfirmationSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+},{
+  timestamps:true
 });
 
 const bookingConfirmationModel = mongoose.model(

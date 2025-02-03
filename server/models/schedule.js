@@ -18,7 +18,9 @@ const scheduleSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-})
+},{
+    timestamps:true
+  })
 
 const scheduleModel = mongoose.model('Schedule', scheduleSchema);
 export default scheduleModel;

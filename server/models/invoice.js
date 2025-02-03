@@ -1,23 +1,29 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const invoiceSchema = new mongoose.Schema({
+const invoiceSchema = new mongoose.Schema(
+  {
     invoiceNumber: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     invoiceDate: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     invoiceAmount: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     invoiceStatus: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-    invoiceItems: [{
-        
-    }]
-})
+    invoiceItems: [{}],
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const invoiceModel = mongoose.model("Invoice", invoiceSchema);
+export default invoiceModel;
