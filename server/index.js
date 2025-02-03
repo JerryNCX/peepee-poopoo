@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 connectDB();
 
-app.get("/", async (req, res) => {
+app.get("/admin", async (req, res) => {
   const response = await adminModel.find();
   return res.json({ admin: response });
 });
@@ -22,7 +22,12 @@ app.post("/api/admin", async (req, res) => {
   return res.json({ admin: response });
 });
 
-app.post("/api/BookingConformation", async (req, res) => {
+app.get("/bookingConfirmation", async (req, res) => {
+    const response = await bookingConfirmationModel.find();
+    return res.json({ bookingConfirmation: response });
+});
+
+app.post("/api/bookingConfirmation", async (req, res) => {
     const response = await bookingConfirmationModel.find();
     return res.json({ bookingConfirmation: response });
   });
