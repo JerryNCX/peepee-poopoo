@@ -9,6 +9,7 @@ import Admin from "./Login/Admin.jsx";
 import SystemAdmin from "./Login/SystemAdmin.jsx";
 import AdminDataManage from "./DataManagement/AdminDataManage.jsx";
 import { useEffect, useState } from "react";
+import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
 
 function App() {
   // const [admin, setAdmin] = useState([]);
@@ -20,11 +21,20 @@ function App() {
   //   };
   //   fetchData();
   // }, []);
+  // const [bookingConfirmation, setBookingConfirmation] = useState([]);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const res = await fetch("http://localhost:3000");
+  //       const data = await res.json();
+  //       setBookingConfirmation(data.bookingConfirmation);
+  //     };
+  //     fetchData();
+  //   }, []);
   return (
     <>
-      {/* {admin.map((detail) => (
+      {/* {bookingConfirmation.map((item) => (
         <h1>
-          {detail.name},{detail.email}.{detail.password}
+          {item.detail},{item.image}.{item.time}
         </h1>
         ))} */}
       <BrowserRouter>
@@ -38,6 +48,7 @@ function App() {
           <Route path="/AdminDataManage" element={<AdminDataManage />} />
         </Routes>
       </BrowserRouter>
+      {/* <BookingConfirmation /> */}
       {/* <ProcessingPage /> */}
       {/* <LoadingConditional /> */}
     </>

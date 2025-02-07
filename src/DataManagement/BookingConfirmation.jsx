@@ -1,6 +1,8 @@
 import React from "react";
-import { Table, TableScrollArea } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
+import { Button, Table, TableScrollArea } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { Switch } from "../components/ui/switch";
 
 const detail = [
   {
@@ -46,12 +48,12 @@ const detail = [
 ];
 
 export default function BookingConfirmation() {
-  const [admin, setAdmin] = useState([]);
+  const [bookingConfirmation, setBookingConfirmation] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:3000");
+      const res = await fetch("http://localhost:3000/booking");
       const data = await res.json();
-      setAdmin(data.admin);
+      setBookingConfirmation(data.bookingConfirmation);
     };
     fetchData();
   }, []);
@@ -68,14 +70,14 @@ export default function BookingConfirmation() {
             <Table.ColumnHeader>Delete</Table.ColumnHeader>
           </Table.Header>
           <Table.Body>
-            {detail.map((item, index) => (
-              <Table.Row key={index}>
-                <Table.Cell>{item.number}</Table.Cell>
-                <Table.Cell>{item.details}</Table.Cell>
-                <Table.Cell>{item.payment}</Table.Cell>
+            {bookingConfirmation.map((item, index) => (
+              <Table.Row key={item} value={index}>
+                <Table.Cell>{item.detail}</Table.Cell>
+                <Table.Cell>{item.image}</Table.Cell>
                 <Table.Cell>{item.time}</Table.Cell>
+                <Table.Cell>{item.payment}</Table.Cell>
                 <Table.Cell>{item.verification}</Table.Cell>
-                <Table.Cell>{item.delete}</Table.Cell>
+                <Switch>{item.delete}</Switch>
               </Table.Row>
             ))}
           </Table.Body>

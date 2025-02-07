@@ -15,20 +15,28 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// app.get("/", async (req, res) => {
-//   const response = await adminModel.find();
-//   return res.json({ admin: response });
-// });
+app.get("/admin", async (req, res) => {
+  try {
+      const response = await adminModel.find();
+      res.json({ admin: response });
+  } catch (error) {
+      res.status(500).json({ error: "Failed to fetch admin data" });
+  }
+});
 
 app.post("/admin", async (req, res) => {
   const response = await adminModel.find();
   return res.json({ admin: response });
 });
 
-// app.get("/bookingConfirmation", async (req, res) => {
-//     const response = await bookingConfirmationModel.find();
-//     return res.json({ bookingConfirmation: response });
-// });
+app.get("/booking", async (req, res) => {
+  try {
+      const response = await bookingConfirmationModel.find();
+      res.json({ bookingConfirmation: response });
+  } catch (error) {
+      res.status(500).json({ error: "Failed to fetch bookings" });
+  }
+});
 
 app.post("/bookingConfirmation", async (req, res) => {
   const response = await bookingConfirmationModel.find();

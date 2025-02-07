@@ -18,17 +18,17 @@ import {
   PaginationPrevTrigger,
   PaginationRoot,
 } from "../components/ui/pagination";
-import { useState,useNavigate } from "react";
+import { useState, useNavigate } from "react";
 import BookingConfirmation from "./BookingConfirmation.jsx";
 
 const pageSize = 1;
 const count = 5;
-const items =[
-  {value:"0", text:"Booking Confirmation", path:BookingConfirmation}, 
-  {value:"1", text:"Available Tow Truck" },
-  {value:"2", text:"Assignations" },
-  {value:"3", text:"Invioce" },
-  {value:"4", text:"Feedbacks" },
+const items = [
+  { value: "0", text: "Booking Confirmation", path: BookingConfirmation },
+  { value: "1", text: "Available Tow Truck" },
+  { value: "2", text: "Assignations" },
+  { value: "3", text: "Invioce" },
+  { value: "4", text: "Feedbacks" },
 ];
 
 export default function AdminDataManage() {
@@ -55,10 +55,9 @@ export default function AdminDataManage() {
             <Image src={cat} w="120px" h="120px" ml="85%" />
           </Container>
         </HStack>
-        <Container>
-          <Center>
+        {visibleItems.map((item, index) => (
+          <Container>
             <Stack alignItems="center">
-              {visibleItems.map((item, index) => (
               <PaginationRoot
                 count={count}
                 pageSize={pageSize}
@@ -66,22 +65,22 @@ export default function AdminDataManage() {
                 onPageChange={(e) => setPage(e.page)}
                 size="lg"
                 variant="solid"
-                key={item} value={index}
-                >
+                key={item}
+                value={index}
+              >
                 <HStack>
                   <PaginationPrevTrigger color="black" />
                   <PaginationItems color="black"></PaginationItems>
                   <PaginationNextTrigger color="black" />
                 </HStack>
-                  <Center color="black" fontSize="4xl">
-                    {item.text}
-                  </Center>
-                  {item.path}
+                <Center color="black" fontSize="4xl">
+                  {item.text}
+                </Center>
               </PaginationRoot>
-                ))}
             </Stack>
-          </Center>
-        </Container>
+            <BookingConfirmation />
+          </Container>
+        ))}
       </Box>
       {/* <Flex height="100vh">
           <Box
