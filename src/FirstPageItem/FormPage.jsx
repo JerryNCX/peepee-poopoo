@@ -12,6 +12,7 @@ import {
   AbsoluteCenter,
   // NativeSelectField, NativeSelectRoot,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { Field } from "../components/ui/field.jsx";
 import Nationality from "./Nationality.jsx";
 import SelectDate from "./DatePicker.jsx";
@@ -42,19 +43,52 @@ import { useForm } from "react-hook-form";
 // fetchData()
 // },[]);
 
-
 function FormPage() {
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const [formData, setFormData] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    vehicleInfo: "",
+    passportNumber: "",
+    isMalaysia: true,
+    requiresTowing: true,
+    date: "",
+    file: null,
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    // Append all fields to FormData (including files)
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+
+    try {
+      const response = await fetch("/submit-form", {
+        method: "POST",
+        body: data, // Send FormData directly
+      });
+      const result = await response.json();
+      alert(result.message);
+    } catch (error) {
+      alert("Submission failed!");
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
   return (
     <>
-      <Box bgColor="#123456" h="100vh" >
+      <Box bgColor="#123456" h="100vh">
         {/* <Box>
                 <VStack>
                 <Text fontSize="7xl" fontWeight="bold">
@@ -121,69 +155,88 @@ function FormPage() {
               <FileInput />
               </FileUploadRoot>
               </Field> */}
-        <form onSubmit={handleSubmit(onSubmit)} bgColor="#123456">
-          <VStack gap={4} >
+        <form onSubmit={handleSubmit}>
+          <VStack gap={4}>
             <Text fontSize="7xl" fontWeight="bold">
               Spot & Tow
             </Text>
             <Text fontSize="xl">Car breakdown? Fill this form!!</Text>
             <input
               type="text"
+              name="name"
               placeholder="Name"
-              {...register("Name", { required: true })}
+              onChange={handleChange}
+              required
             />
             <input
-              type="tel"
-              placeholder="Contaxt"
-              {...register("Contaxt", { required: true })}
+              type="text"
+              name="contact"
+              placeholder="Contact"
+              onChange={handleChange}
+              required
             />
             <input
               type="email"
+              name="email"
               placeholder="Email"
-              {...register("Email", { required: true })}
+              onChange={handleChange}
+              required
             />
             <input
               type="text"
-              placeholder="Vehicle Information"
-              {...register("Vehicle Information", { required: true })}
+              name="vehicleInfo"
+              placeholder="Vehicle Info"
+              onChange={handleChange}
+              required
             />
             <input
               type="text"
+              name="passportNumber"
               placeholder="IC/Passport Number"
-              {...register("IC/Passport Number", { required: true })}
+              onChange={handleChange}
+              required
             />
-            <select {...register("Nationality", { required: true })}>
-              <option value="Malaysia">Malaysia</option>
-              <option value="Thailand">Thailand</option>
+
+            <label>
+              <input type="checkbox" name="isMalaysia" onChange={handleChange}>
+                {/* <option value="Malaysia">Malaysia</option>
+              <option value="Thailand">Thaland</option>
               <option value="Singapore">Singapore</option>
               <option value="Indonesia">Indonesia</option>
               <option value="China">China</option>
-              <option value="Pakistan">Pakistan</option>
-              <option value="Others">Others</option>
-            </select>
-            <select {...register("Service Options", { required: true })}>
-              <option value="Towing">Towing</option>
-            </select>
-            <SelectDate
-              type="datetime"
-              placeholder="Select Date & Time"
-              {...register("Select Date & Time", { required: true })}
+              <option value="Pakisthan">Pakisthan</option>
+              <option value="Other">Other</option> */}
+              </input>
+              Malaysia
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="requiresTowing"
+                onChange={handleChange}
+              />
+              Towing
+            </label>
+
+            <input type="date" name="date" onChange={handleChange} required />
+
+            <input
+              type="file"
+              name="file"
+              onChange={(e) =>
+                setFormData({ ...formData, file: e.target.files[0] })
+              }
             />
 
-            <Field label="Upload Mobile Pictures/Videos" w="50%">
-              <FileUploadRoot gap="1" bgColor="black">
-                <FileUploadLabel></FileUploadLabel>
-                <FileInput />
-              </FileUploadRoot>
-            </Field>
-
-            <Button
+            <button
+              type="submit"
               _hover={{ bg: "green" }}
               colorPalette="peal"
               onClick={() => navigate("/Payment")}
             >
-              <input type="submit"/>
-            </Button>
+              Submit
+            </button>
           </VStack>
         </form>
       </Box>

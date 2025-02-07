@@ -72,10 +72,10 @@ export default function BookingConfirmation() {
           <Table.Body>
             {bookingConfirmation.map((item, index) => (
               <Table.Row key={item} value={index}>
+                <Table.Cell>{item.number}</Table.Cell>
                 <Table.Cell>{item.detail}</Table.Cell>
                 <Table.Cell>{item.image}</Table.Cell>
                 <Table.Cell>{item.time}</Table.Cell>
-                <Table.Cell>{item.payment}</Table.Cell>
                 <Table.Cell>{item.verification}</Table.Cell>
                 <Switch>{item.delete}</Switch>
               </Table.Row>
