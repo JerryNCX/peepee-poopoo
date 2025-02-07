@@ -24,7 +24,7 @@ import BookingConfirmation from "./BookingConfirmation.jsx";
 const pageSize = 1;
 const count = 5;
 const items = [
-  { value: "0", text: "Booking Confirmation", path: BookingConfirmation },
+  { value: "0", text: "Booking Confirmation", path:<BookingConfirmation /> },
   { value: "1", text: "Available Tow Truck" },
   { value: "2", text: "Assignations" },
   { value: "3", text: "Invioce" },
@@ -78,7 +78,7 @@ export default function AdminDataManage() {
                 </Center>
               </PaginationRoot>
             </Stack>
-            <BookingConfirmation />
+            {item.path}
           </Container>
         ))}
       </Box>
