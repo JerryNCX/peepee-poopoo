@@ -90,6 +90,7 @@ export default function SystemAdmin() {
                               Admin
                             </Button>
                             <Button onClick={() => navigate("/SystemAdmin")}>System Administration</Button>
+                            <Button onClick={() => navigate("/Driver")}>Driver</Button>
                           </Stack>
                         </AccordionItemContent>
                       </AccordionItem>
