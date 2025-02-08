@@ -112,6 +112,7 @@ function StartingPage() {
                               Admin
                             </Button>
                             <Button onClick={() => navigate("/SystemAdmin")}>System Administration</Button>
+                            <Button onClick={() => navigate("/Driver")}>Driver</Button>
                           </VStack>
                         </AccordionItemContent>
                       </AccordionItem>

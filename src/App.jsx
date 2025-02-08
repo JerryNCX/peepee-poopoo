@@ -8,6 +8,7 @@ import Payment from "./SecondPageItem/Payment";
 import Admin from "./Login/Admin.jsx";
 import SystemAdmin from "./Login/SystemAdmin.jsx";
 import AdminDataManage from "./DataManagement/AdminDataManage.jsx";
+import Driver from "./Login/Driver.jsx"
 import { useEffect, useState } from "react";
 import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
 import Assignation from "./DataManagement/Assignation.jsx";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Progress" element={<ProcessingPage />} />
           <Route path="/Admin" element={<Admin />} />
           <Route path="/SystemAdmin" element={<SystemAdmin />} />
+          <Route path="/Driver" element={<Driver />} />
           <Route path="/AdminDataManage" element={<AdminDataManage />} />
         </Routes>
       </BrowserRouter>
