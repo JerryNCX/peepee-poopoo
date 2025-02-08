@@ -20,13 +20,15 @@ import {
 } from "../components/ui/pagination";
 import { useState, useNavigate } from "react";
 import BookingConfirmation from "./BookingConfirmation.jsx";
+import Assignation from "./Assignation.jsx";
+import Schedule from "./Schedule.jsx";
 
 const pageSize = 1;
 const count = 5;
 const items = [
   { value: "0", text: "Booking Confirmation", path:<BookingConfirmation /> },
-  { value: "1", text: "Available Tow Truck" },
-  { value: "2", text: "Assignations" },
+  { value: "1", text: "Available Tow Truck", path:<Assignation />},
+  { value: "2", text: "Assignations", path:<Schedule /> },
   { value: "3", text: "Invioce" },
   { value: "4", text: "Feedbacks" },
 ];

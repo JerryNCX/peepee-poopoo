@@ -10,26 +10,9 @@ import SystemAdmin from "./Login/SystemAdmin.jsx";
 import AdminDataManage from "./DataManagement/AdminDataManage.jsx";
 import { useEffect, useState } from "react";
 import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
+import Assignation from "./DataManagement/Assignation.jsx";
 
 function App() {
-  // const [admin, setAdmin] = useState([]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await fetch("http://localhost:3000");
-  //     const data = await res.json();
-  //     setAdmin(data.admin);
-  //   };
-  //   fetchData();
-  // }, []);
-  // const [bookingConfirmation, setBookingConfirmation] = useState([]);
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const res = await fetch("http://localhost:3000");
-  //       const data = await res.json();
-  //       setBookingConfirmation(data.bookingConfirmation);
-  //     };
-  //     fetchData();
-  //   }, []);
   return (
     <>
       {/* {bookingConfirmation.map((item) => (
@@ -49,6 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       {/* <BookingConfirmation /> */}
+      {/* <Assignation /> */}
       {/* <ProcessingPage /> */}
       {/* <LoadingConditional /> */}
     </>

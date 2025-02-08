@@ -45,8 +45,8 @@ app.post("/submit-form", async (req, res) => {
       email: req.body.email,
       vehicleInfo: req.body.vehicleInfo,
       passportNumber: req.body.passportNumber,
-      nationality: req.body.nationality, // Checkbox logic
-      requiresTowing: req.body.requiresTowing === "on",
+      nationality: req.body.nationality, 
+      requiresTowing: req.body.requiresTowing === "on", // Checkbox logic
       date: req.body.date,
       file: req.body.file, // Handle file uploads separately (e.g., using Multer)
     });
@@ -63,25 +63,28 @@ app.post("/submit-form", upload.single("file"), async (req, res) => {
   // Save filePath to MongoDB
 });
 
-// app.post("/bookingConfirmation", async (req, res) => {
-//   const response = await bookingConfirmationModel.find();
-//   return res.json({ bookingConfirmation: response });
-// });
-
-// app.post("/assignation", async (req, res) => {
-//   const response = await assignationModel.find();
-//   return res.json({ assignation: response });
-// });
+app.get("/assignation", async (req, res) => {
+  try {
+    const response = await assignationModel.find();
+    res.json({ assignation: response });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch assignation" });
+  }
+});
 
 // app.post("/feedback", async (req, res) => {
 //   const response = await feedbackModel.find();
 //   return res.json({ feedback: response });
 // });
 
-// app.post("/schedule", async (req, res) => {
-//   const response = await scheduleModel.find();
-//   return res.json({ schedule: response });
-// });
+app.get("/schedule", async (req, res) => {
+  try {
+    const response = await scheduleModel.find();
+    return res.json({ schedule: response });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch schedule" });
+  }
+});
 
 // app.post("/invoice", async (req, res) => {
 //   const response = await invoiceModel.find();

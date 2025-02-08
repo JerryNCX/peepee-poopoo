@@ -2,15 +2,17 @@ import mongoose from "mongoose";
 
 const assignationSchema = mongoose.Schema(
   {
-    assignationDriver: {
+    assignationTow: {
       type: String,
+      require: true,
     },
-    assignationDriverDetails: {
+    assignationTowDetails: {
       type: String,
       require: true,
     },
     assignationStatus: {
       type: Boolean,
+      default: false,
     },
   },
   {

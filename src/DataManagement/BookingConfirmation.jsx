@@ -1,5 +1,5 @@
 import React from "react";
-import { Center } from "@chakra-ui/react";
+import { Center, Image } from "@chakra-ui/react";
 import { Button, Table, TableScrollArea } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { Switch } from "../components/ui/switch";
@@ -60,7 +60,7 @@ export default function BookingConfirmation() {
   return (
     <>
       <TableScrollArea>
-        <Table.Root interactive>
+        <Table.Root >
           <Table.Header bg="black">
             <Table.ColumnHeader>No</Table.ColumnHeader>
             <Table.ColumnHeader>Details</Table.ColumnHeader>
@@ -74,10 +74,14 @@ export default function BookingConfirmation() {
               <Table.Row key={item} value={index}>
                 <Table.Cell>{item.number}</Table.Cell>
                 <Table.Cell>{item.detail}</Table.Cell>
-                <Table.Cell>{item.image}</Table.Cell>
+                <Table.Cell>
+                  <Image src={item.image} />
+                </Table.Cell>
                 <Table.Cell>{item.time}</Table.Cell>
                 <Table.Cell>{item.verification}</Table.Cell>
-                <Switch>{item.delete}</Switch>
+                <Switch>
+                  <Center>{item.delete}</Center>
+                </Switch>
               </Table.Row>
             ))}
           </Table.Body>
