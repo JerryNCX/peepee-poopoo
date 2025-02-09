@@ -25,10 +25,14 @@ export default function Assignation() {
     <>
       <TableScrollArea>
         {assignation.map((item, index) => (
-          <TableBody key={item} value={index} >
-            <TableCell><Image src={item.assignationTow} /></TableCell>
+          <TableBody key={item} value={index}>
+            <TableCell>
+              <Image src={item.assignationTow} />
+            </TableCell>
             <TableCell>{item.assignationTowDetails}</TableCell>
-            <TableCell>{item.assignationStatus}</TableCell>
+            <TableCell>
+              <Switch>{item.assignationStatus}</Switch>
+            </TableCell>
           </TableBody>
         ))}
       </TableScrollArea>
