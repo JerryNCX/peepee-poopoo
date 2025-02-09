@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Center, Button, VStack, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Center,
+  Button,
+  VStack,
+  HStack,
+} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import PickupConfirmationPage from "./src/Driver/PickupConfirmationPage";
 
 export default function IncomingRequestPage() {
+  const navigate = useNavigate();
 
   // State to manage the request status
   const [requestStatus, setRequestStatus] = useState("pending"); // pending, accepted, rejected
-
 
   // Mock request data
   const requestData = {
@@ -20,9 +28,7 @@ export default function IncomingRequestPage() {
   const handleAccept = () => {
     setRequestStatus("accepted");
     alert("Request accepted! Proceed to pickup location.");
-    const navigate = useNavigate();
-    navigate ("/PickupConfirmationPage");
-    then (<PickupConfirmationPage/>)
+    navigate("/PickupConfirmationPage");
   };
 
   // Handle reject request
@@ -61,7 +67,7 @@ export default function IncomingRequestPage() {
             <Button
               colorScheme="green"
               size="lg"
-              onClick={handleAccept} 
+              onClick={handleAccept}
               isDisabled={requestStatus !== "pending"} // Disable if request is already accepted/rejected
             >
               Accept
@@ -78,11 +84,15 @@ export default function IncomingRequestPage() {
 
           {/* Status Message */}
           {requestStatus !== "pending" && (
-            <Text fontSize="lg" color={requestStatus === "accepted" ? "green.500" : "red.500"}>
+            <Text
+              fontSize="lg"
+              color={requestStatus === "accepted" ? "green.500" : "red.500"}
+            >
               Request {requestStatus}!
             </Text>
           )}
         </VStack>
-        </Center>
-        </Box>
-  )}
+      </Center>
+    </Box>
+  );
+}

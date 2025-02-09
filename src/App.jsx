@@ -42,6 +42,7 @@ function App() {
       {/* <ProcessingPage /> */}
       {/* <LoadingConditional /> */}
       {/* <IncomingRequestPage /> */}
+      {/* <PickupConfirmationPage /> */}
     </>
   );
 }
