@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import { Box, Heading, Text, Center, Button, VStack, HStack } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import PickupConfirmationPage from "./src/Driver/PickupConfirmationPage";
 
 export default function IncomingRequestPage() {
+
   // State to manage the request status
   const [requestStatus, setRequestStatus] = useState("pending"); // pending, accepted, rejected
+
 
   // Mock request data
   const requestData = {
     pickupLocation: "123 Main St, Springfield",
-    vehicleInfo: "Toyota Camry (Black)",
-    licensePlate: "ABC-1234",
+    vehicleInfo: "BMW F30 320 I (Yellow)",
+    licensePlate: "VDL 3013",
   };
 
   // Handle accept request
   const handleAccept = () => {
     setRequestStatus("accepted");
     alert("Request accepted! Proceed to pickup location.");
+    const navigate = useNavigate();
+    navigate ("/PickupConfirmationPage");
+    then (<PickupConfirmationPage/>)
   };
 
   // Handle reject request
@@ -54,7 +61,7 @@ export default function IncomingRequestPage() {
             <Button
               colorScheme="green"
               size="lg"
-              onClick={handleAccept}
+              onClick={handleAccept} 
               isDisabled={requestStatus !== "pending"} // Disable if request is already accepted/rejected
             >
               Accept
@@ -76,7 +83,6 @@ export default function IncomingRequestPage() {
             </Text>
           )}
         </VStack>
-      </Center>
-    </Box>
-  );
-}
+        </Center>
+        </Box>
+  )}

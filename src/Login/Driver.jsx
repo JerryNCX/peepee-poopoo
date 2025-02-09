@@ -117,7 +117,7 @@ export default function Admin() {
                 variant="solid"
                 _hover={{ bg: "green" }}
                 maxW="200px"
-                onClick={() => navigate("/AdminDataManage")}
+                onClick={() => navigate("/IncomingRequestPage")}
               >
                 Login
               </Button>
