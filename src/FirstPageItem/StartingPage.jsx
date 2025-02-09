@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Text,
@@ -32,7 +32,7 @@ const items = [
   { value: "a", title: "Contact Us"},
   { value: "b", title: "Our Story"},
   { value: "c", title: "Service"},
-  { value: "d", title: "Login" }, // Login item without text
+  { value: "d", title: "Login" }, 
 ];
 
 const review = [
@@ -45,17 +45,17 @@ const review = [
   },
   {
     value: "1",
-    pic: cat,
+    pic: car,
     name: "Irfan",
     rating: "5",
     comment: "Laju driver macam charles leclerc!!",
   },
   {
     value: "2",
-    pic: cat,
+    pic: car,
     name: "Azwa",
     rating: "4",
-    comment: "10/10 would repeat again",
+    comment: "Laju driver macam charles leclerc!!",
   },
 ];
 
@@ -68,79 +68,6 @@ const Reason = [
 function StartingPage() {
   const navigate = useNavigate();
 
-  const HoverableItem = ({ item }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
-      <Box
-        position="relative"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <Box 
-          w="100px" 
-          fontSize="md"
-          cursor="pointer" 
-          color="black"
-          fontWeight="medium"
-        >
-          {item.title}
-        </Box>
-        
-        {isHovered && (
-          <Box
-          position="absolute"
-          top="100%"
-          left="0"
-          zIndex="1001"
-          bg="transparent"
-          boxShadow="md"
-          borderRadius="md"
-          mt={2}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-            {item.value === "d" ? (
-              <VStack gap={2} align="start" p={2}>
-                <Button
-                  onClick={() => navigate("/Admin")}
-                  variant="ghost"
-                  w="full"
-                  justifyContent="flex-start"
-                  _hover={{ bg: "gray.100" }} 
-                >
-                  Admin
-                </Button>
-                <Button
-                  onClick={() => navigate("/SystemAdmin")}
-                  variant="ghost"
-                  bg="transparent"
-                  w="full"
-                  justifyContent="flex-start"
-                  _hover={{ bg: "gray.100" }}
-                >
-                  System Administration
-                </Button>
-                <Button
-                  onClick={() => navigate("/Driver")}
-                  variant="ghost"
-                  bg="transparent"
-                  w="full"
-                  justifyContent="flex-start"
-                  _hover={{ bg: "gray.100" }}
-                >
-                  Driver
-                </Button>
-              </VStack>
-            ) : (
-              item.text && <Button variant="ghost" w="full">{item.text}</Button>
-            )}
-          </Box>
-        )}
-      </Box>
-    );
-  };
-
   return (
     <>
       <Box w="100vw">
@@ -152,12 +79,11 @@ function StartingPage() {
           right="0"
           zIndex="1000"
           background="yellow.200"
-          height="120px" // Fixed height for the header
+          height="100px" // Fixed height for the header
         >
-          <HStack padding="1.5% 1% 2% 2%" justifyContent="space-around">
-            {/* Logo and Title */}
+          <HStack padding="2% 0% 1% 0%" justifyContent="space-around">
             <Flex align="center">
-              <Image src={truck} w="80px" h="80px" borderRadius="3xl" />
+              <Image src={truck} w="70px" h="70px" borderRadius="3xl" />
               <Center>
                 <Text
                   fontSize="4xl"
@@ -170,14 +96,65 @@ function StartingPage() {
                 </Text>
               </Center>
             </Flex>
-
-            {/* Navigation Items with Hover Functionality */}
             <Flex gap="20">
-              <HStack gap="10">
-                {items.map((item, index) => (
-                  <HoverableItem key={index} item={item} />
-                ))}
-              </HStack>
+              <AccordionRoot collapsible>
+                <HStack gap="10">
+                  {items.map((item, index) => (
+                    <AccordionItem key={index} value={item.value}>
+                      <AccordionItemTrigger color="black">
+                        <Box w="100px">{item.title}</Box>
+                      </AccordionItemTrigger>
+                      <AccordionItemContent>
+                        {/* Conditionally render the dropdown for Login */}
+                        {item.value === "d" ? (
+                          <Box
+                            position="absolute"
+                            top="100%"
+                            left="1000"
+                            zIndex="1001"
+                            bg="ghost"
+                            boxShadow="md"
+                            borderRadius="md"
+                            mt={2}
+                          >
+                            <VStack gap={2} align="start" p={2}>
+                              <Button
+                                onClick={() => navigate("/Admin")}
+                                variant="ghost"
+                                textAlign="left"
+                                w="full"
+                                justifyContent="flex-start"
+                              >
+                                Admin
+                              </Button>
+                              <Button
+                                onClick={() => navigate("/SystemAdmin")}
+                                variant="ghost"
+                                textAlign="left"
+                                w="full"
+                                justifyContent="flex-start"
+                              >
+                                System Administration
+                              </Button>
+                              <Button
+                                onClick={() => navigate("/Driver")}
+                                variant="ghost"
+                                textAlign="left"
+                                w="full"
+                                justifyContent="flex-start"
+                              >
+                                Driver
+                              </Button>
+                            </VStack>
+                          </Box>
+                        ) : (
+                          <Button>{item.text}</Button>
+                        )}
+                      </AccordionItemContent>
+                    </AccordionItem>
+                  ))}
+                </HStack>
+              </AccordionRoot>
             </Flex>
           </HStack>
         </Box>
