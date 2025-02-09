@@ -1,15 +1,82 @@
-import React from "react";
-import { Box, Heading, Text, Center } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Heading, Text, Center, Button, VStack, HStack } from "@chakra-ui/react";
 
 export default function IncomingRequestPage() {
+  // State to manage the request status
+  const [requestStatus, setRequestStatus] = useState("pending"); // pending, accepted, rejected
+
+  // Mock request data
+  const requestData = {
+    pickupLocation: "123 Main St, Springfield",
+    vehicleInfo: "Toyota Camry (Black)",
+    licensePlate: "ABC-1234",
+  };
+
+  // Handle accept request
+  const handleAccept = () => {
+    setRequestStatus("accepted");
+    alert("Request accepted! Proceed to pickup location.");
+  };
+
+  // Handle reject request
+  const handleReject = () => {
+    setRequestStatus("rejected");
+    alert("Request rejected.");
+  };
+
   return (
-    <>
-      <Box>
-        <Center>
-          <Text fontSize="7xl">Incoming Request</Text>
-        </Center>
-        <Text>Waiting for the user to accept or deny the request</Text>
-      </Box>
-    </>
+    <Box p={4}>
+      <Center>
+        <VStack spacing={4}>
+          {/* Page Title */}
+          <Heading as="h1" size="2xl" mb={4}>
+            Incoming Request
+          </Heading>
+
+          {/* Request Details */}
+          <Box borderWidth="1px" borderRadius="lg" p={4} w="100%" maxW="500px">
+            <Text fontSize="xl" fontWeight="bold" mb={2}>
+              Request Details:
+            </Text>
+            <Text>
+              <strong>Pickup Location:</strong> {requestData.pickupLocation}
+            </Text>
+            <Text>
+              <strong>Vehicle Info:</strong> {requestData.vehicleInfo}
+            </Text>
+            <Text>
+              <strong>License Plate:</strong> {requestData.licensePlate}
+            </Text>
+          </Box>
+
+          {/* Action Buttons */}
+          <HStack spacing={4}>
+            <Button
+              colorScheme="green"
+              size="lg"
+              onClick={handleAccept}
+              isDisabled={requestStatus !== "pending"} // Disable if request is already accepted/rejected
+            >
+              Accept
+            </Button>
+            <Button
+              colorScheme="red"
+              size="lg"
+              onClick={handleReject}
+              isDisabled={requestStatus !== "pending"} // Disable if request is already accepted/rejected
+            >
+              Reject
+            </Button>
+          </HStack>
+
+          {/* Status Message */}
+          {requestStatus !== "pending" && (
+            <Text fontSize="lg" color={requestStatus === "accepted" ? "green.500" : "red.500"}>
+              Request {requestStatus}!
+            </Text>
+          )}
+        </VStack>
+      </Center>
+    </Box>
   );
 }
