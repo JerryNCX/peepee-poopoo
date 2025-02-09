@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const assignationSchema = mongoose.Schema(
+const assignationSchema = new mongoose.Schema(
   {
     assignationTow: {
       type: String,
@@ -20,5 +20,5 @@ const assignationSchema = mongoose.Schema(
   }
 );
 
-const assignationModel = mongoose.model("Assignation", assignationSchema);
+const assignationModel = mongoose.model("assignation", assignationSchema);
 export default assignationModel;

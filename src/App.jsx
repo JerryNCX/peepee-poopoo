@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
 import Assignation from "./DataManagement/Assignation.jsx";
 import IncomingRequestPage from "./Login/IncomingRequestPage.jsx";
+import PickupConfirmationPage from "./Login/src/Driver/PickupConfirmationPage.jsx";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           <Route path="/SystemAdmin" element={<SystemAdmin />} />
           <Route path="/Driver" element={<Driver />} />
           <Route path="/AdminDataManage" element={<AdminDataManage />} />
+          <Route path="/IncomingRequestPage" element={<IncomingRequestPage />} />
+          <Route path="/PickupConfirmationPage" element={<PickupConfirmationPage />} />
         </Routes>
       </BrowserRouter>
       {/* <BookingConfirmation /> */}
@@ -39,6 +42,7 @@ function App() {
       {/* <ProcessingPage /> */}
       {/* <LoadingConditional /> */}
       {/* <IncomingRequestPage /> */}
+      {/* <PickupConfirmationPage /> */}
     </>
   );
 }
