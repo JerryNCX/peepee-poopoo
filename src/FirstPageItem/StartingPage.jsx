@@ -18,20 +18,14 @@ import car from "../assets/MyImage/Car.jpg";
 import { useNavigate } from "react-router-dom";
 import towTruck from "../assets/MyImage/tow-truck-svgrepo-com.svg";
 import phoneIcon from "../assets/MyImage/phone-call-svgrepo-com.svg";
-import {
-  AccordionItem,
-  AccordionItemContent,
-  AccordionItemTrigger,
-  AccordionRoot,
-} from "../components/ui/accordion";
 import arrow from "../assets/MyImage/arrow+right+chevron+chevronright+right+right+icon+icon-1320185732203239715_0px.svg";
 import cat from "../assets/MyImage/1801287.svg";
 import { Rating } from "../components/ui/rating";
 
 const items = [
-  { value: "a", title: "Contact Us"},
-  { value: "b", title: "Our Story"},
-  { value: "c", title: "Service"},
+  { value: "a", title: "Contact Us" },
+  { value: "b", title: "Our Story" },
+  { value: "c", title: "Service" },
   { value: "d", title: "Login" }, // Login item without text
 ];
 
@@ -77,29 +71,29 @@ function StartingPage() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Box 
-          w="100px" 
+        <Box
+          w="100px"
           fontSize="md"
-          cursor="pointer" 
+          cursor="pointer"
           color="black"
           fontWeight="medium"
         >
           {item.title}
         </Box>
-        
+
         {isHovered && (
           <Box
-          position="absolute"
-          top="100%"
-          left="0"
-          zIndex="1001"
-          bg="transparent"
-          boxShadow="md"
-          borderRadius="md"
-          mt={2}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+            position="absolute"
+            top="100%"
+            left="0"
+            zIndex="1001"
+            bg="transparent"
+            boxShadow="md"
+            borderRadius="md"
+            mt={2}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             {item.value === "d" ? (
               <VStack gap={2} align="start" p={2}>
                 <Button
@@ -107,7 +101,7 @@ function StartingPage() {
                   variant="ghost"
                   w="full"
                   justifyContent="flex-start"
-                  _hover={{ bg: "gray.100" }} 
+                  _hover={{ bg: "gray.100" }}
                 >
                   Admin
                 </Button>
@@ -133,7 +127,11 @@ function StartingPage() {
                 </Button>
               </VStack>
             ) : (
-              item.text && <Button variant="ghost" w="full">{item.text}</Button>
+              item.text && (
+                <Button variant="ghost" w="full">
+                  {item.text}
+                </Button>
+              )
             )}
           </Box>
         )}
@@ -183,7 +181,9 @@ function StartingPage() {
         </Box>
 
         {/* Main Content */}
-        <Box paddingTop="100px"> {/* Adjust padding to account for the fixed header */}
+        <Box paddingTop="100px">
+          {" "}
+          {/* Adjust padding to account for the fixed header */}
           <Box background="yellow.200" h="80vh">
             <HStack justifyContent="space-evenly" paddingTop="100px">
               <VStack>
@@ -207,44 +207,49 @@ function StartingPage() {
                 <Button
                   onClick={() => navigate("/FormPage")}
                   size="2xl"
-                  width={{ base: "100%", md: "350px"}}
+                  width={{ base: "100%", md: "350px" }}
                   align="center"
                   _hover={{ bg: "gray" }}
                 >
                   Book Towing Service
                 </Button>
               </VStack>
-              <Image src={towTruck} aspectRatio={16 / 9} maxW="50%" maxH="45vh" />
+              <Image
+                src={towTruck}
+                aspectRatio={16 / 9}
+                maxW="50%"
+                maxH="45vh"
+              />
             </HStack>
           </Box>
-
           <Center bgColor="#FFFFFF" padding="1%">
             <HStack>
               <Image src={phoneIcon} w="75px" h="75px" borderRadius="2xl" />
-              <Text fontSize="6xl" color="black" paddingLeft="100px" fontFamily="oswald">
+              <Text
+                fontSize="6xl"
+                color="black"
+                paddingLeft="100px"
+                fontFamily="oswald"
+              >
                 012-3456789
               </Text>
             </HStack>
           </Center>
-
           <Box padding="5%" bgColor="yellow.200">
             <HStack gap="10%">
               <Container bottom="10">
-                <Stack>
+                <Stack color="black">
                   <Text fontSize="4xl" fontWeight="bolder">
                     Why Use Spot & Tow Service?
                   </Text>
-                  <Box paddingTop="10">
-                    <Text fontSize="xl">
-                      Spot & Tow aims to create a safer and more organized
-                      <Text>community by addressing parking issues</Text>
-                      <Text>swiftly and efficiently.</Text>
-                    </Text>
-                  </Box>
+                  <Text fontSize="xl" pt="10%">
+                    Spot & Tow aims to create a safer and more organized
+                    <Text>community by addressing parking issues</Text>
+                    <Text>swiftly and efficiently.</Text>
+                  </Text>
                 </Stack>
                 <Button
-                  color="white"
-                  width={{ base: "100%", md: "300px"}}
+                  width={{ base: "100%", md: "300px" }}
                   top={"20"}
                   size="2xl"
                   paddingLeft="15%"
@@ -253,7 +258,13 @@ function StartingPage() {
                   borderRadius="2xl"
                 >
                   Learn More
-                  <Image src={arrow} w="30px" h="30px" align="center" borderRadius="3xl"/>
+                  <Image
+                    src={arrow}
+                    w="30px"
+                    h="30px"
+                    align="center"
+                    borderRadius="3xl"
+                  />
                 </Button>
               </Container>
 
@@ -264,7 +275,9 @@ function StartingPage() {
                       <Image src={item.Image} w="20%" h="20%" />
                       <Box>
                         <Center>
-                          <Text fontSize="2xl">{item.title}</Text>
+                          <Text fontSize="2xl" color="black">
+                            {item.title}
+                          </Text>
                         </Center>
                       </Box>
                     </HStack>
@@ -273,11 +286,10 @@ function StartingPage() {
               </Container>
             </HStack>
           </Box>
-
-          <Box bgColor="white">
+          <Box bgColor="yellow.200">
             <Container>
               <Center padding="12">
-                <VStack>
+                <VStack color="black">
                   <Text
                     fontSize="5xl"
                     fontWeight="bold"
@@ -291,7 +303,12 @@ function StartingPage() {
                     <Stack gap="30px">
                       {review.map((item, index) => (
                         <Center gap="14" key={index} value={item.value}>
-                          <Image src={item.pic} w="100px" h="100px" borderRadius="full" />
+                          <Image
+                            src={item.pic}
+                            w="100px"
+                            h="100px"
+                            borderRadius="full"
+                          />
                           <VStack>
                             <Text fontSize="2xl">{item.name}</Text>
                             <Rating value={item.rating} />
@@ -307,14 +324,20 @@ function StartingPage() {
               </Center>
             </Container>
           </Box>
-
-          <Container maxW="100%" maxH="fit-content" padding="40" bg="yellow.200" paddingTop="40px">
+          <Container
+            maxW="100%"
+            maxH="fit-content"
+            padding="40"
+            bg="yellow.200"
+            paddingTop="40px"
+          >
             <Text
               fontSize="5xl"
               fontWeight="bold"
               pb="50px"
               fontFamily="Oswald"
               textAlign="center"
+              color="black"
             >
               Where Are You Now?
             </Text>
@@ -327,8 +350,6 @@ function StartingPage() {
               />
             </AspectRatio>
           </Container>
-
-
           <Box
             p={{ base: 5, md: 8 }}
             marginInline="auto"
@@ -344,8 +365,9 @@ function StartingPage() {
               <Box maxW="300px">
                 <HStack gap="5">
                   <Image w="100px" src={cat} />
-                  <Text fontSize="3xl"
-                  fontFamily="oswald">Spot & Tow</Text>
+                  <Text fontSize="3xl" fontFamily="oswald">
+                    Spot & Tow
+                  </Text>
                 </HStack>
 
                 <Text mt={2} color="white" fontSize="md">
@@ -394,7 +416,6 @@ function StartingPage() {
               </HStack>
             </Stack>
           </Box>
-
           <Center
             padding="2% 0% 6% 0%"
             color="black"

@@ -51,7 +51,7 @@ function FormPage() {
     email: "",
     vehicleInfo: "",
     passportNumber: "",
-    isMalaysia: true,
+    nationality: "",
     requiresTowing: true,
     date: "",
     file: null,
@@ -198,7 +198,7 @@ function FormPage() {
             />
 
             <label>
-              <input type="checkbox" name="isMalaysia" onChange={handleChange}>
+              <input type="text" name="nationality" placeholder="Nationality" onChange={handleChange}>
                 {/* <option value="Malaysia">Malaysia</option>
               <option value="Thailand">Thaland</option>
               <option value="Singapore">Singapore</option>
@@ -207,7 +207,6 @@ function FormPage() {
               <option value="Pakisthan">Pakisthan</option>
               <option value="Other">Other</option> */}
               </input>
-              Malaysia
             </label>
 
             <label>

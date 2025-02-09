@@ -1,5 +1,18 @@
 import React from "react";
-import { Box, Heading, Text, Center, Button, VStack, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Center,
+  Button,
+  VStack,
+  Image,
+} from "@chakra-ui/react";
+import {
+  FileUploadList,
+  FileUploadRoot,
+  FileUploadTrigger,
+} from "../../../components/ui/file-upload";
 
 export default function PickupConfirmationPage() {
   // Mock vehicle data
@@ -34,19 +47,36 @@ export default function PickupConfirmationPage() {
             <Text fontSize="xl" fontWeight="bold" mb={4}>
               Vehicle Details:
             </Text>
-            <Text><strong>Model:</strong> {vehicleDetails.model}</Text>
-            <Text><strong>Color:</strong> {vehicleDetails.color}</Text>
-            <Text><strong>License Plate:</strong> {vehicleDetails.licensePlate}</Text>
+            <Text>
+              <strong>Model:</strong> {vehicleDetails.model}
+            </Text>
+            <Text>
+              <strong>Color:</strong> {vehicleDetails.color}
+            </Text>
+            <Text>
+              <strong>License Plate:</strong> {vehicleDetails.licensePlate}
+            </Text>
           </Box>
 
           {/* Photo Upload/Placeholder */}
-          <Box w="100%" p={4} borderWidth="2px" borderStyle="dashed" borderRadius="lg">
-            <Text textAlign="center" mb={2}>
-              Photo before pickup:
-            </Text>
-            <Center h="200px" bg="gray.100" borderRadius="md">
-              <Text color="gray.500">Insert photo here</Text>
-            </Center>
+          <Box
+            w="100%"
+            p={4}
+            borderWidth="2px"
+            borderStyle="dashed"
+            borderRadius="lg"
+          >
+            <FileUploadRoot>
+              <FileUploadTrigger>
+                <Text textAlign="center" mb={2}>
+                  Photo before pickup:
+                </Text>
+                <Center h="200px" bg="gray.100" borderRadius="md">
+                  <Text color="gray.500">Insert photo here</Text>
+                </Center>
+              </FileUploadTrigger>
+              <FileUploadList />
+            </FileUploadRoot>
           </Box>
 
           {/* Confirmation Button */}
