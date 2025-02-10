@@ -6,6 +6,7 @@ import {
   TableScrollArea,
   TableCell,
   TableBody,
+  TableRoot
 } from "@chakra-ui/react";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -25,15 +26,17 @@ export default function Assignation() {
     <>
       <TableScrollArea>
         {assignation.map((item, index) => (
-          <TableBody key={item} value={index}>
-            <TableCell>
-              <Image src={item.assignationTow} />
-            </TableCell>
-            <TableCell>{item.assignationTowDetails}</TableCell>
-            <TableCell>
-              <Switch>{item.assignationStatus}</Switch>
-            </TableCell>
-          </TableBody>
+          <TableRoot key={item} value={index}>
+            <TableBody>
+              <TableCell>
+                <Image src={item.assignationTow} />
+              </TableCell>
+              <TableCell color="black">{item.assignationTowDetails}</TableCell>
+              <TableCell>
+                <Switch>{item.assignationStatus}</Switch>
+              </TableCell>
+            </TableBody>
+          </TableRoot>
         ))}
       </TableScrollArea>
     </>
