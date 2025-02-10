@@ -14,6 +14,7 @@ import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
 import Assignation from "./DataManagement/Assignation.jsx";
 import IncomingRequestPage from "./Login/IncomingRequestPage.jsx";
 import PickupConfirmationPage from "./Login/src/Driver/PickupConfirmationPage.jsx";
+import SystemAdminDataManage from "./SystemAdministration/SystemAdminDataManage.jsx"
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path="/AdminDataManage" element={<AdminDataManage />} />
           <Route path="/IncomingRequestPage" element={<IncomingRequestPage />} />
           <Route path="/PickupConfirmationPage" element={<PickupConfirmationPage />} />
+          <Route path="/SystemAdminDataManage" element={<SystemAdminDataManage />} />
+
         </Routes>
       </BrowserRouter>
       {/* <BookingConfirmation /> */}
