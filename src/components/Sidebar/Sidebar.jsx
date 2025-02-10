@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../Sidebar/Sidebar.css";
 import Logo from "../../assets/MyImage/SEF Logo.jpg";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
-import { SidebarData } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
-import { motion } from "framer-motion";
+import { SidebarData } from "../../Data/Data.js";
+import {motion} from "framer-motion";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
