@@ -12,12 +12,16 @@ import invoiceModel from "./models/Invoice.js";
 import scheduleModel from "./models/schedule.js";
 import cors from "cors";
 import multer from "multer";
+import Calculation from "./models/calculation.js"; 
+import calculationRoutes from "./routes/calculationRoutes.js";
 
 const upload = multer({ dest: "uploads/" });
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/calculations", calculationRoutes);
 
 app.get("/admin", async (req, res) => {
   try {

@@ -1,0 +1,67 @@
+.notification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    padding: 20px;
+  }
+  
+  .notification-title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Aswald";
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 5rem;
+  }
+  
+  .table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-left: 10rem;
+  }
+  
+  .notification-table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .notification-table th, .notification-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .notify-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .notify-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .notify-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  

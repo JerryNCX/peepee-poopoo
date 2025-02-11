@@ -1,0 +1,43 @@
+.data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding-left: 15rem;
+  }
+  
+  .data-title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Aswald";
+    margin-bottom: 20px;
+    color: black;
+    padding-bottom: 3rem;
+  }
+  
+  .data-boxes {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .data-box {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    font-family: "Aswald";
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(3, 27, 0, 0.1);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .data-box:hover {
+    background-color: #e0e0e0;
+  }
+  
