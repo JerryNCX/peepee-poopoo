@@ -2,25 +2,23 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    name: {
+    details: {
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: String,
+    paymentProof: {
+      type: String, // Assuming it's a URL to an image/file
       required: true,
     },
-    icOrPassport: {
+    bookingID: {
       type: String,
       required: true,
+      unique: true,
     },
-    availability: {
-      type: Boolean,
-      default: true,
-    },
-    reasons: {
+    verification: {
       type: String,
-      default: "",
+      enum: ["Pending", "Verified", "Rejected"],
+      default: "Pending",
     },
   },
   {

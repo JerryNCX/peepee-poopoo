@@ -11,22 +11,31 @@ const Users = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch("/api/users");
+      const response = await fetch("http://localhost:3000/users");  // Direct backend endpoint
       const data = await response.json();
       setUsers(data);
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
-  };
+  };  
 
   const deleteUser = async (userId) => {
     try {
-      await fetch(`/api/users/${userId}`, { method: "DELETE" });
-      fetchUserData(); // Refresh the table
+      const response = await fetch(`http://localhost:3000/users/${userId}`, { 
+        method: "DELETE",
+      });
+  
+      if (!response.ok) {
+        console.error("Error deleting user:", await response.text());
+        return;
+      }
+  
+      fetchUserData(); // Refresh the list after deletion
     } catch (error) {
       console.error("Error deleting user:", error);
     }
   };
+  
 
   return (
     <div className="calculation-container">

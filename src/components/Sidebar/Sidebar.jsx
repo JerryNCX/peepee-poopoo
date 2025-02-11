@@ -23,6 +23,11 @@ const Sidebar = () => {
     }
   }
   console.log(window.innerWidth)
+
+  const handleSignOut = () => {
+    navigate('/SystemAdmin'); // Navigate to SystemAdmin.jsx when clicked
+  };
+
   return (
     <>
       <div 
@@ -62,8 +67,8 @@ const Sidebar = () => {
           );
         })}
         {/* signoutIcon */}
-        <div className="menuItem">
-          <UilSignOutAlt />
+        <div className="menuItem" onClick={handleSignOut}>
+            <UilSignOutAlt />
         </div>
       </div>
     </motion.div>

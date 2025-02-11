@@ -15,6 +15,8 @@ import multer from "multer";
 import Calculation from "./models/calculation.js"; 
 import calculationRoutes from "./routes/calculationRoutes.js";
 import usersRoutes from "./routes/usersRoutes.js";
+import Driver from "./models/drivers.js";
+import driversRoutes from "./routes/driversRouters.js"; 
 
 const upload = multer({ dest: "uploads/" });
 const app = express();
@@ -24,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/calculations", calculationRoutes);
 app.use("/users", usersRoutes);
+app.use("/drivers", driversRoutes);
 
 
 app.get("/admin", async (req, res) => {

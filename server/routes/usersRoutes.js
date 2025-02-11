@@ -15,15 +15,14 @@ router.get("/", async (req, res) => {
 
 // Add a new user
 router.post("/", async (req, res) => {
-  const { name, phoneNumber, icOrPassport, availability, reasons } = req.body;
+  const { details, paymentProof, bookingID, verification } = req.body;
 
   try {
     const newUser = new User({
-      name,
-      phoneNumber,
-      icOrPassport,
-      availability,
-      reasons,
+      details,
+      paymentProof,
+      bookingID,
+      verification,
     });
 
     await newUser.save();
@@ -35,12 +34,16 @@ router.post("/", async (req, res) => {
 
 // Delete user by ID
 router.delete("/:id", async (req, res) => {
-  try {
-    await User.findByIdAndDelete(req.params.id);
-    res.json({ message: "User deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Error deleting user", error });
-  }
-});
+    try {
+      const user = await User.findByIdAndDelete(req.params.id);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      res.json({ message: "User deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Error deleting user", error });
+    }
+  });
+  
 
 export default router;
