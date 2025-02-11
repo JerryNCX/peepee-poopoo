@@ -14,6 +14,7 @@ import cors from "cors";
 import multer from "multer";
 import Calculation from "./models/calculation.js"; 
 import calculationRoutes from "./routes/calculationRoutes.js";
+import usersRoutes from "./routes/usersRoutes.js";
 
 const upload = multer({ dest: "uploads/" });
 const app = express();
@@ -22,6 +23,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/calculations", calculationRoutes);
+app.use("/users", usersRoutes);
+
 
 app.get("/admin", async (req, res) => {
   try {

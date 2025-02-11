@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.14.0",
     "@iconscout/react-unicons": "^2.2.4",
     "@mui/material": "^6.4.3",
+    "@react-google-maps/api": "^2.20.6",
     "animejs": "^3.2.2",
     "apexcharts": "^4.4.0",
     "axios": "^1.7.9",

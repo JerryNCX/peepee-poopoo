@@ -29,12 +29,12 @@ export const SidebarData = [
   {
     icon: UilClipboardAlt,
     heading: "Calculation",
-    id: "calculation", // Add an ID for each section
+    id: "calculation", 
   },
   {
     icon: UilUsersAlt,
     heading: "Data",
-    id: "data", // Add an ID for each section
+    id: "data", 
   },
   {
     icon: UilPackage,
