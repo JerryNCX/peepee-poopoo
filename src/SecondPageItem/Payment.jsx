@@ -1,94 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   VStack,
-  Stack,
-  HStack,
   Center,
   Text,
   Container,
   Image,
   Button,
+  Input,
 } from "@chakra-ui/react";
 import { Field } from "../components/ui/field";
 import { QrCode } from "../components/ui/qr-code";
-import QrCodePayment from "../assets/MyImage/QrCode.jpg";
 import UploadIcon from "../assets/MyImage/cloud-upload-svgrepo-com.svg";
-import {
-  FileInput,
-  FileUploadLabel,
-  FileUploadRoot,
-} from "../components/ui/file-upload";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Payment() {
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const amount = location.state?.amount || "N/A"; // Get amount from previous page
+
+  const handleFileChange = (event) => {
+    const uploadedFile = event.target.files[0]; // Get first file
+    if (uploadedFile) {
+      setFile(uploadedFile); // Update state
+      console.log("File uploaded:", uploadedFile.name); // Debugging
+    }
+  };
+
+  const handleSubmit = () => {
+    if (!file) {
+      alert("🚨 Please upload your payment proof before submitting.");
+      return; // Stop submission
+    }
+    navigate("/Progress"); // Proceed to next page
+  };
+
   return (
-    <>
-      <Box w="100vw" h="130vh" bgColor="white">
-        <VStack>
-          <Text className="text" fontSize="6xl" fontWeight="bold">
-            Payment
-          </Text>
-          <Container gap="3%">
-            <Center>
-              {/* <Image
-                src={QrCodePayment}
-                alt="QrCode"
-                width="300px"
-                height="300px"
-              /> */}
-              <QrCode value="https://github.com/" />
-            </Center>
+    <Box w="100vw" h="130vh" bgColor="white">
+      <VStack>
+        <Text className="text" fontSize="6xl" fontWeight="bold">
+          Payment
+        </Text>
 
-            <Center>
-              <Box
-                className="text"
-                marginTop="3%"
-                borderColor="black"
-                borderWidth="2px"
-                padding="5px 20px 5px"
-              >
-                Account Number : XXXX-XXXX-XXXX (Maybank)
-              </Box>
-            </Center>
-          </Container>
-
-          <Box display="flex" w="50%" marginTop="3%">
-            <Field>
-              <Text color="black" fontSize="3xl">
-                Payment Proof
-              </Text>
-              <Container borderWidth="2px" borderStyle="dashed" padding="50px">
-                <FileUploadRoot alignItems="center">
-                  <FileUploadLabel></FileUploadLabel>
-                  <Image
-                    src={UploadIcon}
-                    alt="Upload"
-                    width="70px"
-                    height="70px"
-                  />
-                  <FileInput type="file" w="400px" />
-                </FileUploadRoot>
-              </Container>
-            </Field>
-          </Box>
+        <Container gap="3%">
+          <Center>
+            <QrCode value="https://github.com/" />
+          </Center>
 
           <Center>
-            <Button 
-            marginTop="3%" 
-            borderColor="black" 
-            _hover={{ bg: "gray" }}
-            onClick={() => {
-              navigate("/Progress");
-            }
-            }
+            <Box
+              className="text"
+              marginTop="3%"
+              borderColor="black"
+              borderWidth="2px"
+              padding="5px 20px 5px"
+              color="black"
             >
-              Submit
-            </Button>
+              <strong>Account Number:</strong> XXXX-XXXX-XXXX (Maybank)
+            </Box>
           </Center>
-        </VStack>
-      </Box>
-    </>
+
+          <Center>
+            <Box
+              marginTop="3%"
+              borderWidth="2px"
+              padding="10px"
+              fontSize="4xl"
+              fontWeight="bold"
+              color="red"
+            >
+              Total Payment: RM {amount}
+            </Box>
+          </Center>
+        </Container>
+
+        {/* Payment Proof Upload */}
+        <Box display="flex" w="50%" marginTop="3%">
+          <Field>
+            <Text color="black" fontSize="3xl">
+              Payment Proof
+            </Text>
+            <Container borderWidth="2px" borderStyle="dashed" padding="50px">
+              <Center>
+                <Image src={UploadIcon} alt="Upload" width="70px" height="70px" />
+              </Center>
+              <Input
+                type="file"
+                accept="image/*,application/pdf"
+                onChange={handleFileChange}
+                bg="white"
+                color="black" // Fix white text issue
+                border="1px solid black"
+                p="10px"
+                mt="10px"
+              />
+            </Container>
+          </Field>
+        </Box>
+
+        <Center>
+          <Button
+            marginTop="3%"
+            borderColor="black"
+            _hover={{ bg: "gray" }}
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </Center>
+      </VStack>
+    </Box>
   );
 }
