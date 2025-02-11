@@ -90,7 +90,7 @@ export default function Payment() {
                 accept="image/*,application/pdf"
                 onChange={handleFileChange}
                 bg="white"
-                color="black" // Fix white text issue
+                color="black" 
                 border="1px solid black"
                 p="10px"
                 mt="10px"

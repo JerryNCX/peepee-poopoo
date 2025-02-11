@@ -1,245 +1,174 @@
-import {
-  Flex,
-  Image,
-  Text,
-  Input,
-  Stack,
-  Box,
-  HStack,
-  Button,
-  VStack,
-  ProgressRoot,
-  AbsoluteCenter,
-  // NativeSelectField, NativeSelectRoot,
+import { 
+  Box, VStack, Text, Button 
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { Field } from "../components/ui/field.jsx";
-import Nationality from "./Nationality.jsx";
-import SelectDate from "./DatePicker.jsx";
-import {
-  FileInput,
-  FileUploadLabel,
-  FileUploadRoot,
-} from "../components/ui/file-upload";
 import { useNavigate } from "react-router-dom";
-import {
-  NativeSelectField,
-  NativeSelectRoot,
-} from "../components/ui/native-select";
 import { useForm } from "react-hook-form";
-// import axios from 'axios';
-
-// const [data, setData] = useState([]);
-// const [error, SetError] = useState(null);
-// useEffect(() => {
-//   const fetchData = async () => {
-//     try{
-//       const response = await axios.get('../../backend/connect.cjs')
-//     } catch (err) {
-//       SetError(err.message);
-//     }
-//   };
-
-// fetchData()
-// },[]);
+import { FileInput, FileUploadLabel, FileUploadRoot } from "../components/ui/file-upload";
+import SelectDate from "./DatePicker.jsx";
 
 function FormPage() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
-    email: "",
-    vehicleInfo: "",
-    passportNumber: "",
-    nationality: "",
-    requiresTowing: true,
-    date: "",
-    file: null,
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = new FormData();
-    // Append all fields to FormData (including files)
-    Object.entries(formData).forEach(([key, value]) => {
-      data.append(key, value);
-    });
-
-    try {
-      const response = await fetch("/submit-form", {
-        method: "POST",
-        body: data, // Send FormData directly
-      });
-      const result = await response.json();
-      alert(result.message);
-    } catch (error) {
-      alert("Submission failed!");
+  const onSubmit = (data) => {
+    if (Object.keys(errors).length > 0) {
+      alert("Please fill in all required fields before proceeding.");
+    } else {
+      console.log("Form submitted:", data);
+      navigate("/PickDropLocation"); // Navigate only if no errors
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
-
   return (
-    <>
-      <Box bgColor="#123456" h="100vh">
-        {/* <Box>
-                <VStack>
-                <Text fontSize="7xl" fontWeight="bold">
-                Spot & Tow
-                </Text>
-                <Text fontSize="xl">Car breakdown? Fill this form!!</Text>
-                </VStack>
-                </Box>
-              <Field label="Name" required>
-              <Input placeholder="Name" className="Input" />
-              </Field>
-              
-              <Field label="Contact" required>
-              <Input placeholder="Exapmle +6012-345 6789" className="Input" />
-              </Field>
-              
-              <Field label="Email" required>
-              <Input placeholder="Email" className="Input" />
-              </Field>
+    <Box bgColor="yellow.100" h="135vh">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <VStack gap={4}>
+          <Text fontSize="7xl" fontWeight="bold" color="black">Spot & Tow</Text>
+          <Text fontSize="xl" color="black">Car breakdown? Fill this form!!</Text>
 
-              <Field label="Vehicle Information" required>
-              <Input placeholder="BMW M4, WXX 1234" className="Input" />
-              </Field>
-              
-              <Field
-              label="IC / Passport Number"
-              invalid
-              errorText="Only numbers allowed"
-              required
-              >
-              <Input placeholder="IC / Passport Number" className="Input" />
-              </Field>
+          <input type="text" placeholder="Name" {...register("Name", { required: true })} 
+          style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box"}}
+          />
+          {errors.Name && <span style={{ color: "red" }}>Name is required</span>}
 
-              <Field label="Nationality" required>
-              <NativeSelectRoot
-              size="sm"
-              width="-moz-max-content"
-              variant={"subtle"}
-              >
-              <NativeSelectField placeholder="Nationality">
-              <Nationality />
-              </NativeSelectField>
-              </NativeSelectRoot>
-              </Field>
+          <input type="tel" placeholder="Contact" {...register("Contact", { required: true })}
+          style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box"}}
+          />
+          {errors.Contact && <span style={{ color: "red" }}>Contact is required</span>}
 
-              <Field label="Service Options" required>
-              <NativeSelectRoot
-              size="sm"
-              width="-moz-max-content"
-              variant={"subtle"}
-              >
-              <NativeSelectField placeholder="Towing">
-              </NativeSelectField>
-              </NativeSelectRoot>
-              </Field>
+          <input type="email" placeholder="Email" {...register("Email", { required: true })} 
+           style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box"}}
+          />
+          {errors.Email && <span style={{ color: "red" }}>Email is required</span>}
 
-              <Field label="Select Date & Time">
-              <SelectDate />
-              </Field>
-              
-              <Field label="Upload Mobile Pictures/Videos">
-              <FileUploadRoot gap="1" bgColor="black">
-              <FileUploadLabel></FileUploadLabel>
-              <FileInput />
-              </FileUploadRoot>
-              </Field> */}
-        <form onSubmit={handleSubmit}>
-          <VStack gap={4}>
-            <Text fontSize="7xl" fontWeight="bold">
-              Spot & Tow
-            </Text>
-            <Text fontSize="xl">Car breakdown? Fill this form!!</Text>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="contact"
-              placeholder="Contact"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="vehicleInfo"
-              placeholder="Vehicle Info"
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="passportNumber"
-              placeholder="IC/Passport Number"
-              onChange={handleChange}
-              required
-            />
+          <input type="text" placeholder="Vehicle Information" {...register("VehicleInfo", { required: true })} 
+           style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box"}}
+          />
+          {errors.VehicleInfo && <span style={{ color: "red" }}>Vehicle Information is required</span>}
 
-            <label>
-              <input type="text" name="nationality" placeholder="Nationality" onChange={handleChange}>
-                {/* <option value="Malaysia">Malaysia</option>
-              <option value="Thailand">Thaland</option>
-              <option value="Singapore">Singapore</option>
-              <option value="Indonesia">Indonesia</option>
-              <option value="China">China</option>
-              <option value="Pakisthan">Pakisthan</option>
-              <option value="Other">Other</option> */}
-              </input>
-            </label>
+          <input type="text" placeholder="IC/Passport Number" {...register("ICPassport", { required: true })} 
+           style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box"}}
+          />
+          {errors.ICPassport && <span style={{ color: "red" }}>IC/Passport Number is required</span>}
 
-            <label>
-              <input
-                type="checkbox"
-                name="requiresTowing"
-                onChange={handleChange}
-              />
-              Towing
-            </label>
+          <select {...register("Nationality", { required: true })}
+          style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box",
+            marginBottom: "10px"  // Add spacing between elements
+            }}>
+            <option value="">Select Nationality</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Singapore">Singapore</option>
+          </select>
+          {errors.Nationality && <span style={{ color: "red" }}>Nationality is required</span>}
 
-            <input type="date" name="date" onChange={handleChange} required />
+          <select {...register("ServiceOption", { required: true })}
+          style={{ 
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",  // Adjust width as needed
+            height: "40px",  // Adjust height as needed
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            boxSizing: "border-box",
+            marginBottom: "10px"  // Add spacing between elements
+          }}
+          >
+            <option value="">Select Service</option>
+            <option value="Towing">Towing</option>
+            <option value="Accident">Accident Assistance</option>
+          </select>
+          {errors.ServiceOption && <span style={{ color: "red" }}>Service Option is required</span>}
 
-            <input
-              type="file"
-              name="file"
-              onChange={(e) =>
-                setFormData({ ...formData, file: e.target.files[0] })
-              }
-            />
+          <SelectDate {...register("DateTime", { required: true })} 
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            width: "300px",
+            padding: "10px 12px",
+            fontSize: "16px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            margin: "8px 0",
+            boxSizing: "border-box"
+          }}/>
+         
+          <FileUploadRoot>
+            <FileUploadLabel />
+            <FileInput {...register("FileUpload", { required: true })} />
+          </FileUploadRoot>
+          
 
-            <button
-              type="submit"
+          <Button
               _hover={{ bg: "green" }}
               colorPalette="peal"
               onClick={() => navigate("/PickDropLocation")}
             >
-              Submit
-            </button>
-          </VStack>
-        </form>
-      </Box>
-    </>
+              <input type="submit"/>
+            </Button>
+        </VStack>
+      </form>
+    </Box>
   );
 }
 
