@@ -19,28 +19,34 @@ import {
   import img3 from "../assets/MyImage/1801287.svg";
   
   // Sidebar Data
-  export const SidebarData = [
-    {
-      icon: UilEstate,
-      heading: "Dashboard",
-    },
-    {
-      icon: UilClipboardAlt,
-      heading: "Orders",
-    },
-    {
-      icon: UilUsersAlt,
-      heading: "Customers",
-    },
-    {
-      icon: UilPackage,
-      heading: 'Products'
-    },
-    {
-      icon: UilChart,
-      heading: 'Analytics'
-    },
-  ];
+  // Data.jsx
+export const SidebarData = [
+  {
+    icon: UilEstate,
+    heading: "Dashboard",
+    id: "dashboard", // Add an ID for each section
+  },
+  {
+    icon: UilClipboardAlt,
+    heading: "Calculation",
+    id: "calculation", // Add an ID for each section
+  },
+  {
+    icon: UilUsersAlt,
+    heading: "Data",
+    id: "data", // Add an ID for each section
+  },
+  {
+    icon: UilPackage,
+    heading: 'Notification',
+    id: "Notification",
+  },
+  {
+    icon: UilChart,
+    heading: 'Invoice',
+    id: "Invoice",
+  },
+];
   
   // Analytics Cards Data
   export const cardsData = [

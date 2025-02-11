@@ -14,7 +14,16 @@ import BookingConfirmation from "./DataManagement/BookingConfirmation.jsx";
 import Assignation from "./DataManagement/Assignation.jsx";
 import IncomingRequestPage from "./Login/IncomingRequestPage.jsx";
 import PickupConfirmationPage from "./Login/src/Driver/PickupConfirmationPage.jsx";
-import SystemAdminDataManage from "./SystemAdministration/SystemAdminDataManage.jsx"
+import SystemAdminDataManage from "./SystemAdministration/SystemAdminDataManage.jsx";
+import React from "react";
+import SidebarLayout from "./pages/SidebarLayout";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Dashboard from "./SystemAdministration/SystemAdminDataManage.jsx";
+import Calculation from "./pages/Calculation";
+import Data from "./pages/Data";
+import Notification from "./pages/Notification";
+import Invoice from "./pages/Invoice";
+
 
 function App() {
   return (
@@ -37,8 +46,16 @@ function App() {
           <Route path="/IncomingRequestPage" element={<IncomingRequestPage />} />
           <Route path="/PickupConfirmationPage" element={<PickupConfirmationPage />} />
           <Route path="/SystemAdminDataManage" element={<SystemAdminDataManage />} />
+          <Route path="/Dashboard" element={<SystemAdminDataManage />} />
 
+          <Route element={<SidebarLayout />}>
+            <Route path="/calculation" element={<Calculation />} />
+            <Route path="/data" element={<Data />} />
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/invoice" element={<Invoice />} />
+          </Route>
         </Routes>
+
       </BrowserRouter>
       {/* <BookingConfirmation /> */}
       {/* <Assignation /> */}
