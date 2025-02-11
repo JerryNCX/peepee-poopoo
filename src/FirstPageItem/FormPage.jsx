@@ -15,16 +15,12 @@ function FormPage() {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (Object.keys(errors).length > 0) {
-      alert("Please fill in all required fields before proceeding.");
-    } else {
-      console.log("Form submitted:", data);
-      navigate("/PickDropLocation"); // Navigate only if no errors
-    }
+    console.log(data);
+    console.log(errors);
   };
 
   return (
-    <Box bgColor="yellow.100" h="135vh">
+    <Box bgColor="yellow.100" h="150vh">
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack gap={4}>
           <Text fontSize="7xl" fontWeight="bold" color="black">Spot & Tow</Text>
@@ -41,7 +37,7 @@ function FormPage() {
             border: "1px solid #ccc",
             borderRadius: "4px",
             boxSizing: "border-box"}}
-          />
+            />
           {errors.Name && <span style={{ color: "red" }}>Name is required</span>}
 
           <input type="tel" placeholder="Contact" {...register("Contact", { required: true })}
@@ -74,21 +70,21 @@ function FormPage() {
 
           <input type="text" placeholder="Vehicle Information" {...register("VehicleInfo", { required: true })} 
            style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
-          />
+             backgroundColor: "white",
+             color: "black",
+             width: "300px",  // Adjust width as needed
+             height: "40px",  // Adjust height as needed
+             padding: "10px 12px",
+             fontSize: "16px",
+             border: "1px solid #ccc",
+             borderRadius: "4px",
+             boxSizing: "border-box"}}
+             />
           {errors.VehicleInfo && <span style={{ color: "red" }}>Vehicle Information is required</span>}
 
           <input type="text" placeholder="IC/Passport Number" {...register("ICPassport", { required: true })} 
            style={{ 
-            backgroundColor: "white",
+             backgroundColor: "white",
             color: "black",
             width: "300px",  // Adjust width as needed
             height: "40px",  // Adjust height as needed
@@ -97,7 +93,7 @@ function FormPage() {
             border: "1px solid #ccc",
             borderRadius: "4px",
             boxSizing: "border-box"}}
-          />
+            />
           {errors.ICPassport && <span style={{ color: "red" }}>IC/Passport Number is required</span>}
 
           <select {...register("Nationality", { required: true })}
@@ -112,7 +108,7 @@ function FormPage() {
             borderRadius: "4px",
             boxSizing: "border-box",
             marginBottom: "10px"  // Add spacing between elements
-            }}>
+          }}>
             <option value="">Select Nationality</option>
             <option value="Malaysia">Malaysia</option>
             <option value="Thailand">Thailand</option>
@@ -153,21 +149,20 @@ function FormPage() {
             boxSizing: "border-box"
           }}/>
          
-          <FileUploadRoot>
+          <FileUploadRoot w="300px">
             <FileUploadLabel />
-            <FileInput {...register("FileUpload", { required: true })} />
+            <FileInput {...register("FileUpload", { required: true })}  bg="white" border="1px solid #ccc" />
           </FileUploadRoot>
           
 
           <Button
               _hover={{ bg: "green" }}
               colorPalette="peal"
-              onClick={() => navigate("/PickDropLocation")}
-            >
+              >
               <input type="submit"/>
             </Button>
         </VStack>
-      </form>
+        </form>
     </Box>
   );
 }

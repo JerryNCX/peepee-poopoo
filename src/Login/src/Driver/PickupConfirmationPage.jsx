@@ -12,7 +12,9 @@ import {
   FileUploadList,
   FileUploadRoot,
   FileUploadTrigger,
-} from "../../../components/ui/file-upload";
+} from "../../../components/ui/file-upload";  
+import { useNavigate } from "react-router-dom";
+import NavigationPage from "./NavigationPage";
 
 export default function PickupConfirmationPage() {
   // Mock vehicle data
@@ -23,9 +25,12 @@ export default function PickupConfirmationPage() {
   };
 
   // Handle pickup confirmation
+  const navigate = useNavigate();
   const handleConfirmPickup = () => {
     alert("Pickup confirmed! Proceed to drop-off location.");
-    // Add navigation logic here (e.g., redirect to next page)
+    navigate("/NavigationPage");
+
+    
   };
 
   return (
@@ -84,6 +89,7 @@ export default function PickupConfirmationPage() {
             colorScheme="blue"
             size="lg"
             onClick={handleConfirmPickup}
+
             w="100%"
           >
             Confirm Pickup

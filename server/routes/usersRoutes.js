@@ -7,11 +7,21 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    // Modify response to match frontend expectations
+    const formattedUsers = users.map((user) => ({
+      _id: user._id,
+      details: `Name: ${user.name}, Phone: ${user.phoneNumber}, IC/Passport: ${user.icOrPassport}`,
+      paymentProof: "-", // No such field in backend, placeholder added
+      bookingID: "-", // No such field in backend, placeholder added
+      verification: user.availability ? "Verified" : "Pending",
+    }));
+
+    res.json(formattedUsers);
   } catch (error) {
     res.status(500).json({ message: "Error fetching users", error });
   }
 });
+
 
 // Add a new user
 router.post("/", async (req, res) => {

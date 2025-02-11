@@ -20,6 +20,26 @@ const UserSchema = new mongoose.Schema(
       enum: ["Pending", "Verified", "Rejected"],
       default: "Pending",
     },
+    details: {
+      type: String,
+      default: function () {
+        return `Name: ${this.name}, Phone: ${this.phoneNumber}, IC/Passport: ${this.icOrPassport}`;
+      },
+    },
+    paymentProof: {
+      type: String,
+      default: "-",
+    },
+    bookingID: {
+      type: String,
+      default: "-",
+    },
+    verification: {
+      type: String,
+      default: function () {
+        return this.availability ? "Verified" : "Pending";
+      },
+    },
   },
   {
     timestamps: true,
