@@ -204,7 +204,7 @@ function StartingPage() {
             </HStack>
           </Center>
 
-          <Box padding="5%" bgColor="yellow.200">
+          <Box padding="5%" bgColor="yellow.200" color="black">
             <HStack gap="10%">
               <Container bottom="10">
                 <Stack>
@@ -220,7 +220,7 @@ function StartingPage() {
                   </Box>
                 </Stack>
                 <Button
-                  color="white"
+                  color="black"
                   width={{ base: "100%", md: "300px"}}
                   top={"20"}
                   size="2xl"
@@ -251,7 +251,7 @@ function StartingPage() {
             </HStack>
           </Box>
 
-          <Box bgColor="white">
+          <Box bg="yellow.200" color="black">
             <Container>
               <Center padding="12">
                 <VStack>
@@ -292,6 +292,7 @@ function StartingPage() {
               pb="50px"
               fontFamily="Oswald"
               textAlign="center"
+              color="black"
             >
               Where Are You Now?
             </Text>

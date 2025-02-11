@@ -56,7 +56,6 @@ function App() {
             <Route path="/invoice" element={<Invoice />} />
             <Route path ="/users" element={<Users />} />
             <Route path ="/drivers" element={<Drivers />} />
-
           </Route>
         </Routes>
       </BrowserRouter>
