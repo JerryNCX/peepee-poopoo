@@ -153,11 +153,26 @@ function FormPage() {
             boxSizing: "border-box"
           }}/>
          
-          <FileUploadRoot>
-            <FileUploadLabel />
-            <FileInput {...register("FileUpload", { required: true })} />
-          </FileUploadRoot>
-          
+          <FileUploadRoot
+  style={{
+    backgroundColor: "white",
+    color: "black",
+    width: "320px", // Slightly bigger width
+    height: "50px", // Slightly bigger height
+    padding: "12px 14px",
+    fontSize: "18px",
+    border: "1px solid #ccc",
+    borderRadius: "6px",
+    boxSizing: "border-box",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "12px",
+  }}
+>
+  <FileUploadLabel />
+  <FileInput {...register("FileUpload", { required: true })} />
+</FileUploadRoot>
 
           <Button
               _hover={{ bg: "green" }}
