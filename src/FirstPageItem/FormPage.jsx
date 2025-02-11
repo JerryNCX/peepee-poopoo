@@ -232,7 +232,7 @@ function FormPage() {
               type="submit"
               _hover={{ bg: "green" }}
               colorPalette="peal"
-              onClick={() => navigate("/Payment")}
+              onClick={() => navigate("/PickDropLocation")}
             >
               Submit
             </button>
