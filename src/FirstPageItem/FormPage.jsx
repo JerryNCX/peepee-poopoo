@@ -1,9 +1,11 @@
-import { 
-  Box, VStack, Text, Button 
-} from "@chakra-ui/react";
+import { Box, VStack, Text, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { FileInput, FileUploadLabel, FileUploadRoot } from "../components/ui/file-upload";
+import {
+  FileInput,
+  FileUploadLabel,
+  FileUploadRoot,
+} from "../components/ui/file-upload";
 import SelectDate from "./DatePicker.jsx";
 
 function FormPage() {
@@ -15,157 +17,201 @@ function FormPage() {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (Object.keys(errors).length > 0) {
-      alert("Please fill in all required fields before proceeding.");
-    } else {
-      console.log("Form submitted:", data);
-      navigate("/PickDropLocation"); // Navigate only if no errors
+    console.log(data);
+
+    // Prevent navigation if there are errors
+    if (Object.keys(errors).length === 0) {
+      navigate("/PickDropLocation");
     }
   };
 
   return (
-    <Box bgColor="yellow.100" h="135vh">
+    <Box bgColor="yellow.100" h="160vh">
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack gap={4}>
-          <Text fontSize="7xl" fontWeight="bold" color="black">Spot & Tow</Text>
-          <Text fontSize="xl" color="black">Car breakdown? Fill this form!!</Text>
-
-          <input type="text" placeholder="Name" {...register("Name", { required: true })} 
-          style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
+          <Text fontSize="7xl" fontWeight="bold" color="black">
+            Spot & Tow
+          </Text>
+          <Text fontSize="xl" color="black">
+            Car breakdown? Fill this form!!
+          </Text>
+          <input
+            type="text"
+            placeholder="Name"
+            {...register("Name", { required: "Name is required" })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
           />
-          {errors.Name && <span style={{ color: "red" }}>Name is required</span>}
-
-          <input type="tel" placeholder="Contact" {...register("Contact", { required: true })}
-          style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
+          {errors.Name && (
+            <span style={{ color: "red" }}>{errors.Name.message}</span>
+          )}
+          <input
+            type="tel"
+            placeholder="Contact"
+            {...register("Contact", { required: "Contact is required" })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
           />
-          {errors.Contact && <span style={{ color: "red" }}>Contact is required</span>}
-
-          <input type="email" placeholder="Email" {...register("Email", { required: true })} 
-           style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
+          {errors.Contact && (
+            <span style={{ color: "red" }}>{errors.Contact.message}</span>
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            {...register("Email", { required: "Email is required" })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
           />
-          {errors.Email && <span style={{ color: "red" }}>Email is required</span>}
-
-          <input type="text" placeholder="Vehicle Information" {...register("VehicleInfo", { required: true })} 
-           style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
+          {errors.Email && (
+            <span style={{ color: "red" }}>{errors.Email.message}</span>
+          )}
+          <input
+            type="text"
+            placeholder="Vehicle Information"
+            {...register("VehicleInfo", {
+              required: "Vehicle Information is required",
+            })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
           />
-          {errors.VehicleInfo && <span style={{ color: "red" }}>Vehicle Information is required</span>}
-
-          <input type="text" placeholder="IC/Passport Number" {...register("ICPassport", { required: true })} 
-           style={{ 
+          {errors.VehicleInfo && (
+            <span style={{ color: "red" }}>{errors.VehicleInfo.message}</span>
+          )}
+          <input
+            type="text"
+            placeholder="IC/Passport Number"
+            {...register("ICPassport", {
+              required: "IC/Passport Number is required",
+            })}
+          style={{
             backgroundColor: "white",
             color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"}}
-          />
-          {errors.ICPassport && <span style={{ color: "red" }}>IC/Passport Number is required</span>}
-
-          <select {...register("Nationality", { required: true })}
-          style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
+            width: "300px", // Adjust width as needed
+            height: "40px", // Adjust height as needed
             padding: "10px 12px",
             fontSize: "16px",
             border: "1px solid #ccc",
             borderRadius: "4px",
             boxSizing: "border-box",
-            marginBottom: "10px"  // Add spacing between elements
-            }}>
+          }}
+          />
+          {errors.ICPassport && (
+            <span style={{ color: "red" }}>{errors.ICPassport.message}</span>
+          )}
+          <select
+            {...register("Nationality", {
+              required: "Nationality is required",
+            })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
+          >
             <option value="">Select Nationality</option>
             <option value="Malaysia">Malaysia</option>
             <option value="Thailand">Thailand</option>
             <option value="Singapore">Singapore</option>
           </select>
-          {errors.Nationality && <span style={{ color: "red" }}>Nationality is required</span>}
-
-          <select {...register("ServiceOption", { required: true })}
-          style={{ 
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",  // Adjust width as needed
-            height: "40px",  // Adjust height as needed
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box",
-            marginBottom: "10px"  // Add spacing between elements
-          }}
+          {errors.Nationality && (
+            <span style={{ color: "red" }}>{errors.Nationality.message}</span>
+          )}
+          <select
+            {...register("ServiceOption", {
+              required: "Service Option is required",
+            })}
+            style={{
+              backgroundColor: "white",
+              color: "black",
+              width: "300px", // Adjust width as needed
+              height: "40px", // Adjust height as needed
+              padding: "10px 12px",
+              fontSize: "16px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
           >
             <option value="">Select Service</option>
             <option value="Towing">Towing</option>
             <option value="Accident">Accident Assistance</option>
           </select>
-          {errors.ServiceOption && <span style={{ color: "red" }}>Service Option is required</span>}
-
-          <SelectDate {...register("DateTime", { required: true })} 
-          style={{
-            backgroundColor: "white",
-            color: "black",
-            width: "300px",
-            padding: "10px 12px",
-            fontSize: "16px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            margin: "8px 0",
-            boxSizing: "border-box"
-          }}/>
-         
-          <FileUploadRoot>
-            <FileUploadLabel />
-            <FileInput {...register("FileUpload", { required: true })} />
+          {errors.ServiceOption && (
+            <span style={{ color: "red" }}>{errors.ServiceOption.message}</span>
+          )}
+          <SelectDate
+            {...register("DateTime", { required: "Date and Time is required" })}
+          />
+          {errors.DateTime && (
+            <span style={{ color: "red" }}>{errors.DateTime.message}</span>
+          )}
+          <FileUploadRoot w="300px">
+            <FileUploadLabel/>
+            <FileInput
+              {...register("FileUpload", {
+                required: "File upload is required",
+              })}
+              bg="white"
+              border="1px solid #ccc"
+            />
           </FileUploadRoot>
-          
-
-          <Button
-              _hover={{ bg: "green" }}
-              colorPalette="peal"
-              onClick={() => navigate("/PickDropLocation")}
-            >
-              <input type="submit"/>
-            </Button>
+          {errors.FileUpload && (
+            <span style={{ color: "red" }}>{errors.FileUpload.message}</span>
+          )}
+          {/* Proper submit button */}
+          <button
+            type="submit"
+            style={{
+              padding: "10px",
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "5px",
+            }}
+          >
+            Submit
+          </button>
         </VStack>
       </form>
     </Box>

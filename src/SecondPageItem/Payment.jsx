@@ -37,7 +37,7 @@ export default function Payment() {
   };
 
   return (
-    <Box w="100vw" h="130vh" bgColor="white">
+    <Box w="100vw" h="140vh" bgColor="white">
       <VStack>
         <Text className="text" fontSize="6xl" fontWeight="bold">
           Payment
@@ -51,7 +51,7 @@ export default function Payment() {
           <Center>
             <Box
               className="text"
-              marginTop="3%"
+              marginTop="1%"
               borderColor="black"
               borderWidth="2px"
               padding="5px 20px 5px"
@@ -63,10 +63,10 @@ export default function Payment() {
 
           <Center>
             <Box
-              marginTop="3%"
+              marginTop="1%"
               borderWidth="2px"
               padding="10px"
-              fontSize="4xl"
+              fontSize="2xl"
               fontWeight="bold"
               color="red"
             >
@@ -76,7 +76,7 @@ export default function Payment() {
         </Container>
 
         {/* Payment Proof Upload */}
-        <Box display="flex" w="50%" marginTop="3%">
+        <Box display="flex" w="50%" marginTop="1%">
           <Field>
             <Text color="black" fontSize="3xl">
               Payment Proof
