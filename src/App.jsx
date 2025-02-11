@@ -27,6 +27,7 @@ import Notification from "./pages/Notification";
 import Invoice from "./pages/Invoice";
 import Users from "./pages/Users";
 import Drivers from "./pages/Drivers";
+import NavigationPage from "./Login/src/Driver/NavigationPage.jsx";
 
 
 function App() {
@@ -47,15 +48,16 @@ function App() {
           <Route path="/IncomingRequestPage" element={<IncomingRequestPage />} />
           <Route path="/PickupConfirmationPage" element={<PickupConfirmationPage />} />
           <Route path="/SystemAdminDataManage" element={<SystemAdminDataManage />} />
+             <Route path ="/NavigationPage" element={<NavigationPage/>} />
           <Route path="/Dashboard" element={<SystemAdminDataManage />} />
-
           <Route element={<SidebarLayout />}>
             <Route path="/calculation" element={<Calculation />} />
             <Route path="/data" element={<Data />} />
             <Route path="/notification" element={<Notification />} />
             <Route path="/invoice" element={<Invoice />} />
-            <Route path ="/users" element={<Users />} />
+            <Route path ="/users" element={<Users />} /> 
             <Route path ="/drivers" element={<Drivers />} />
+          
           </Route>
         </Routes>
       </BrowserRouter>
