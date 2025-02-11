@@ -25,6 +25,9 @@ import Calculation from "./pages/Calculation";
 import Data from "./pages/Data";
 import Notification from "./pages/Notification";
 import Invoice from "./pages/Invoice";
+import Users from "./pages/Users";
+import Drivers from "./pages/Drivers";
+
 
 function App() {
   return (
@@ -51,6 +54,9 @@ function App() {
             <Route path="/data" element={<Data />} />
             <Route path="/notification" element={<Notification />} />
             <Route path="/invoice" element={<Invoice />} />
+            <Route path ="/users" element={<Users />} />
+            <Route path ="/drivers" element={<Drivers />} />
+
           </Route>
         </Routes>
       </BrowserRouter>

@@ -22,8 +22,8 @@
   }
   
   .data-box {
-    width: 200px;
-    height: 150px;
+    width: 300px;
+    height: 250px;
     display: flex;
     align-items: center;
     font-family: "Aswald";
