@@ -32,6 +32,7 @@ export default function PickupConfirmationPage() {
 
     
   };
+ 
 
   return (
     <Box p={4}>

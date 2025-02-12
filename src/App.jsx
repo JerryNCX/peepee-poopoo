@@ -28,7 +28,7 @@ import Invoice from "./pages/Invoice";
 import Users from "./pages/Users";
 import Drivers from "./pages/Drivers";
 import NavigationPage from "./Login/src/Driver/NavigationPage.jsx";
-
+import DropoffNavigationPage from "./Login/src/Driver/DropoffNavigationPage.jsx";
 
 function App() {
   return (
@@ -47,8 +47,9 @@ function App() {
           <Route path="/Feedback" element={<Feedback />} />
           <Route path="/IncomingRequestPage" element={<IncomingRequestPage />} />
           <Route path="/PickupConfirmationPage" element={<PickupConfirmationPage />} />
+          <Route path="DropoffNavigationPage" element={<DropoffNavigationPage />}  />
           <Route path="/SystemAdminDataManage" element={<SystemAdminDataManage />} />
-             <Route path ="/NavigationPage" element={<NavigationPage/>} />
+          <Route path ="/NavigationPage" element={<NavigationPage/>} />
           <Route path="/Dashboard" element={<SystemAdminDataManage />} />
           <Route element={<SidebarLayout />}>
             <Route path="/calculation" element={<Calculation />} />

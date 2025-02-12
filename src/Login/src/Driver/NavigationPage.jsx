@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default function NavigationPage() {
   const location = useLocation();
-  const navigate = useNavigate(); // Initialize navigation
+  
 
   const { vehicleDetails, bookingId, pickupLocation } = location.state || {};
 
@@ -17,8 +17,15 @@ export default function NavigationPage() {
   };
 
   // Function to handle next button click
+  const navigate = useNavigate();
   const handleNext = () => {
-    navigate("/nextPage"); // Replace "/nextPage" with your actual route
+    navigate("/DropoffNavigationpage", {
+      state: {
+        vehicleDetails,
+        bookingId,
+        dropoffLocation: "456 Main Avenue, City Center", // Update with actual drop-off location
+      },
+    });
   };
 
   return (
@@ -72,3 +79,4 @@ export default function NavigationPage() {
     </Box>
   );
 }
+
