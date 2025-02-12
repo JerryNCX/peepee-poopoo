@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Heading, Text, Center, VStack, Button } from "@chakra-ui/react";
 import { useLocation, useNavigate } from "react-router-dom";
+import UpdateJobStatusPage from './UpdateJobStatusPage'; 
+
 
 export default function DropoffNavigationPage() {
   const location = useLocation();
-  const navigate = useNavigate();
   const { vehicleDetails, bookingId, dropoffLocation } = location.state || {};
 
   const navigationDetails = {
@@ -15,10 +16,11 @@ export default function DropoffNavigationPage() {
     vehicleModel: vehicleDetails?.model || "BMW F30 320 I",
   };
 
-  const handleArrived = () => {
-    alert("You have arrived at the drop-off location!");
-    // Navigate to next step (e.g., job completion page)
+  const navigate = useNavigate();
+  const handleGoToJobStatus = () => {
+    navigate("/UpdateJobStatusPage");
   };
+  
 
   return (
     <Box p={4}>
@@ -33,9 +35,7 @@ export default function DropoffNavigationPage() {
           </Heading>
 
           <Box w="100%" p={4} bg="blue.50" borderRadius="lg" color="black">
-            <Text fontWeight="bold">
-              Traffic status: {navigationDetails.trafficStatus}
-            </Text>
+            <Text fontWeight="bold">Traffic status: {navigationDetails.trafficStatus}</Text>
           </Box>
 
           <Box w="100%" p={4} borderWidth="1px" borderRadius="lg">
@@ -55,9 +55,9 @@ export default function DropoffNavigationPage() {
             </Center>
           </Box>
 
-          {/* Arrived Button */}
-          <Button colorScheme="yellow" size="lg" onClick={handleArrived}>
-            Arrived at Drop-off
+          {/* Update Job Status Button */}
+          <Button colorScheme="blue" size="lg" onClick={handleGoToJobStatus} aria-label="Proceed to update job status">
+            Proceed to Update Job Status
           </Button>
         </VStack>
       </Center>
