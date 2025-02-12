@@ -22,6 +22,8 @@ import { useState, useNavigate } from "react";
 import BookingConfirmation from "./BookingConfirmation.jsx";
 import Assignation from "./Assignation.jsx";
 import Schedule from "./Schedule.jsx";
+import Invoice from "./Invoice.jsx";
+import Feedback from "./Feedback.jsx";
 
 const pageSize = 1;
 const count = 5;
@@ -29,8 +31,8 @@ const items = [
   { value: "0", text: "Booking Confirmation", path:<BookingConfirmation /> },
   { value: "1", text: "Available Tow Truck", path:<Assignation />},
   { value: "2", text: "Assignations", path:<Schedule /> },
-  { value: "3", text: "Invioce" },
-  { value: "4", text: "Feedbacks" },
+  { value: "3", text: "Invioce", path:<Invoice />},
+  { value: "4", text: "Feedbacks", path:<Feedback />},
 ];
 
 export default function AdminDataManage() {
@@ -42,7 +44,7 @@ export default function AdminDataManage() {
 
   return (
     <>
-      <Box bg="white" p="1%">
+      <Box bg="yellow.200" p="1%">
         <HStack alignItems="center">
           <Text
             fontSize="5xl"
