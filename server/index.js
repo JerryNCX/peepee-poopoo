@@ -73,6 +73,24 @@ app.post("/submit-form", upload.single("file"), async (req, res) => {
   // Save filePath to MongoDB
 });
 
+app.get("/invoice", async (req, res) => {
+  try {
+    const response = await invoiceModel.find();
+    res.json({ invoice: response });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch schedule" });
+  };
+});
+
+app.get("/feedback", async (req, res) => {
+  try {
+    const response = await feedbackModel.find();
+    res.json({ feedback: response });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch feedback" });
+  }
+});
+
 app.get("/assignation", async (req, res) => {
   try {
     const response = await assignationModel.find();

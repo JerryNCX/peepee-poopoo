@@ -24,14 +24,14 @@ export default function Assignation() {
   }, []);
   return (
     <>
-      <TableScrollArea>
+      <TableScrollArea bg="black">
         {assignation.map((item, index) => (
           <TableRoot key={item} value={index}>
             <TableBody>
               <TableCell>
                 <Image src={item.assignationTow} />
               </TableCell>
-              <TableCell color="black">{item.assignationTowDetails}</TableCell>
+              <TableCell>{item.assignationTowDetails}</TableCell>
               <TableCell>
                 <Switch>{item.assignationStatus}</Switch>
               </TableCell>
