@@ -2,23 +2,22 @@ import mongoose from "mongoose";
 
 const invoiceSchema = new mongoose.Schema(
   {
-    invoiceNumber: {
+    invoiceID: {
       type: String,
       required: true,
     },
-    invoiceDate: {
-      type: Date,
+    invoiceStatus: {
+      type: Boolean,
+      default: true,
+    },
+    invoiceFile: {
+      type: String,
       required: true,
     },
     invoiceAmount: {
       type: Number,
       required: true,
     },
-    invoiceStatus: {
-      type: String,
-      required: true,
-    },
-    invoiceItems: [{}],
   },
   {
     timestamps: true,

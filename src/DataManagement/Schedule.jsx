@@ -1,4 +1,16 @@
-import { Box, HStack, Image, Container, Text } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  Image,
+  Container,
+  Text,
+  TableScrollArea,
+  TableRoot,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@chakra-ui/react";
+import { Switch } from "../components/ui/switch";
 import React from "react";
 import { useState, useEffect } from "react";
 
@@ -15,15 +27,28 @@ export default function Schedule() {
   return (
     <>
       <Box>
-        {schedule.map((item, index) => (
-          <HStack key={item} calue={index} gap="20">
-            <Image src={item.driverPic} maxW="100px" />
-            <Container color="black">
-              <Text>Details:{item.driverDetails}</Text>
-              <Text>Status:{item.driverStatus}</Text>
-            </Container>
-          </HStack>
-        ))}
+        <TableScrollArea>
+          <TableRoot>
+            <TableBody>
+              {schedule.map((item, index) => (
+                <TableRow key={item} value={index} color="white">
+                  <TableCell>
+                    <Image
+                      src={item.driverPic}
+                      alt="driver"
+                      maxH="150px"
+                      maxW="150px"
+                    />
+                  </TableCell>
+                  <TableCell>{item.driverDetails}</TableCell>
+                  <TableCell>
+                    <Switch>{item.driverStatus}</Switch>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableRoot>
+        </TableScrollArea>
       </Box>
     </>
   );

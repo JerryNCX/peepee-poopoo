@@ -1,18 +1,23 @@
-import { 
-  Box, VStack, Text, Button 
-} from "@chakra-ui/react";
+import { Box, VStack, Text, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FileInput, FileUploadLabel, FileUploadRoot } from "../components/ui/file-upload";
 import SelectDate from "./DatePicker.jsx";
+import PickDropLocation from "../SecondPageItem/PickDropLocation.jsx";
 
-function FormPage() {
+export default function FormPage() {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
+    control,
     formState: { errors },
   } = useForm();
+
+  // Watch file input to check if a file is uploaded
+  const uploadedFile = watch("FileUpload");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -20,11 +25,16 @@ function FormPage() {
   };
 
   return (
-    <Box bgColor="yellow.100" h="150vh">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <VStack gap={4}>
-          <Text fontSize="7xl" fontWeight="bold" color="black">Spot & Tow</Text>
-          <Text fontSize="xl" color="black">Car breakdown? Fill this form!!</Text>
+    <>
+      <Box bgColor="yellow.100" h="150vh">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <VStack gap={4}>
+            <Text fontSize="7xl" fontWeight="bold" color="black">
+              Spot & Tow
+            </Text>
+            <Text fontSize="xl" color="black">
+              Car breakdown? Fill this form!!
+            </Text>
 
           <input type="text" placeholder="Name" {...register("Name", { required: true })} 
           style={{ 
@@ -166,5 +176,18 @@ function FormPage() {
     </Box>
   );
 }
+
+// Input field styles
+const inputStyle = {
+  backgroundColor: "white",
+  color: "black",
+  width: "300px",
+  height: "40px",
+  padding: "10px 12px",
+  fontSize: "16px",
+  border: "1px solid #ccc",
+  borderRadius: "4px",
+  boxSizing: "border-box",
+};
 
 export default FormPage;
